@@ -1,0 +1,47 @@
+.app_register {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  flex: 50%;
+
+  .app_register_form {
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    .app_register_form2 {
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      border-radius: 1.5rem;
+      padding: 3%;
+      -webkit-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
+      -moz-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
+      box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
+
+      h1 {
+        font-size: 30px;
+        text-align: center;
+        padding: 5px;
+      }
+      p {
+        padding: 10px;
+        span{
+          color: green;
+        }
+      }
+     
+    }
+  }
+
+  img {
+    width: 100vw;
+    height: 100vh;
+  }
+  Button{
+    margin-top: 15px;
+  }
+}
