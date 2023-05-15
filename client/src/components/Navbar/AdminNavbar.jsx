@@ -16,6 +16,8 @@ const VendorNavbar = () => {
           </button>
         </div>
 
+        <h3>ASNR</h3>
+
         <div className="card">
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
 

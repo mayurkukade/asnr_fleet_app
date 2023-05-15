@@ -4,6 +4,7 @@ import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import "./register.scss";
 import { Link } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
+
 const Register = () => {
   const [registerValue, setRegisterValue] = useState({
     firstname: "",
@@ -100,7 +101,7 @@ const Register = () => {
             Sing up already? please{" "}
             <span>
               {" "}
-              <Link to="/sign">Sing in</Link>
+              <Link to="/">Sing in</Link>
             </span>
           </p>
         </div>

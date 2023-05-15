@@ -1,5 +1,5 @@
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import AdminTable from './VendorManegment'
+import { Link} from 'react-router-dom'
 import './admintabs.scss'
 const AdminTabs = () => {
   return (
@@ -7,8 +7,8 @@ const AdminTabs = () => {
    
     <Tabs align='center' isFitted  variant='soft-rounded' colorScheme='blue'>
   <TabList>
-    <Tab>Fleet Managment</Tab>
-    <Tab>Vendor Managment</Tab>
+    <Tab Link={'/fleetmanegment'} >Fleet Managment</Tab>
+    <Tab  > <Link to={'/vendor'} >Vendor Managment</Link> </Tab>
     <Tab>User Role Managment</Tab>
     <Tab>Reports</Tab>
     <hr />
@@ -19,7 +19,7 @@ const AdminTabs = () => {
       <p>Fleet Managment</p>
     </TabPanel>
     <TabPanel>
-    <AdminTable />
+   
     </TabPanel>
     <TabPanel>
       <p>User Role Managment</p>
