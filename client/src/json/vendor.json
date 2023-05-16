@@ -1,0 +1,44 @@
+{
+    "vendor":[
+        {
+            "vendorID":"1",
+            "vendorName":"Mr.Mehta Pvt.Ltd",
+            "Location":"Pune",
+            "PhoneNo":"98897998",
+            "TotalTrips":"17",
+            "Accept":["true","false"]
+        },
+        {
+            "vendorID":"2",
+            "vendorName":"Mr.Dubey Pvt.Ltd",
+            "Location":"Pune",
+            "PhoneNo":"98897998",
+            "TotalTrips":"19",
+            "Accept":["true","false"]
+        },
+        {
+            "vendorID":"3",
+            "vendorName":"Mr. Despande Pvt.Ltd",
+            "Location":"Pune",
+            "PhoneNo":"98897998",
+            "TotalTrips":"17",
+            "Accept":["true","false"]
+        },
+        {
+            "vendorID":"4",
+            "vendorName":"Mr. Kulkarni Pvt.Ltd",
+            "Location":"Pune",
+            "PhoneNo":"98897998",
+            "TotalTrips":"17",
+            "Accept":["true","false"]
+        },
+        {
+            "vendorID":"5",
+            "vendorName":"Mr. Deshmukh Pvt.Ltd",
+            "Location":"Pune",
+            "PhoneNo":"98897998",
+            "TotalTrips":"17",
+            "Accept":["true","false"]
+        }
+    ]
+}

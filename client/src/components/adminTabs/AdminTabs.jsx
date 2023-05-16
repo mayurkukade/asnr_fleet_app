@@ -1,14 +1,14 @@
 import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
 import "./admintabs.scss";
+// isFitted variant='enclosed' align="center"
 const AdminTabs = () => {
   return (
     <>
-      <Tabs isFitted variant='enclosed' align="center">
-        <TabList  >
+      <Tabs isFitted >
+        <TabList>
           <Link to={"/admin/fleet"}>
-       
-            <Tab>Fleet Managment</Tab>
+            <Tab> Fleet Managment</Tab>
           </Link>
           <Link to={"/admin/vendors"}>
             {" "}

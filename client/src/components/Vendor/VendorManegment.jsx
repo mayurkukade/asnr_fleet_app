@@ -1,21 +1,53 @@
 import { Outlet } from "react-router-dom";
+import data from "../../json/vendor.json";
 import { Link } from "react-router-dom";
 import {
   Table,
   Thead,
   Tbody,
-  
   Tr,
   Th,
   Td,
-
   TableContainer,
 } from "@chakra-ui/react";
 
 const VendorManegment = () => {
+  
+  console.log(data);
+  const vendorData = data.vendor.map((vendorData,i) => {
+    return (
+      <>
+      <Tbody key={i}>
+        <Tr>
+          <Td>{vendorData.vendorID}</Td>
+          <Td>
+            <Link to="/admin/vendors/vendordetails">
+              {vendorData.vendorName}
+            </Link>{" "}
+          </Td>
+          <Td align="center">
+            <Link to="/admin/vendors/vendordetails">{vendorData.Location}</Link>
+          </Td>
+          <Td>
+            <Link to="/admin/vendors/vendordetails">{vendorData.PhoneNo}</Link>
+          </Td>
+          <Td>
+            <Link to="/admin/vendors/vendordetails">
+              {vendorData.TotalTrips}
+            </Link>
+          </Td>
+          <Td>
+            <Link>{"✅ ❌"}</Link>
+          </Td>
+        </Tr>
+        </Tbody>
+      </>
+    );
+  });
   return (
     <>
       <Outlet />
+
       <TableContainer>
         <Table variant="simple">
           <Thead>
@@ -28,42 +60,7 @@ const VendorManegment = () => {
               <Th>Accept/Reject</Th>
             </Tr>
           </Thead>
-          <Tbody>
-            <Tr>
-              <Td alignItems={"center"}>1331</Td>
-              <Td>
-                <Link to={"/admin/vendors/vendordetails"}>XYZ</Link>{" "}
-              </Td>
-              <Td>Pune</Td>
-              <Td>988878787</Td>
-              <Td>17</Td>
-              <Td>✅/❌</Td>
-            </Tr>
-            <Tr>
-              <Td alignItems={"center"}>1331</Td>
-              <Td>XYZ</Td>
-              <Td>Pune</Td>
-              <Td>988878787</Td>
-              <Td>17</Td>
-              <Td>✅/❌</Td>
-            </Tr>
-            <Tr>
-              <Td alignItems={"center"}>1331</Td>
-              <Td>XYZ</Td>
-              <Td>Pune</Td>
-              <Td>988878787</Td>
-              <Td>17</Td>
-              <Td>✅/❌</Td>
-            </Tr>
-            <Tr>
-              <Td alignItems={"center"}>1331</Td>
-              <Td>XYZ</Td>
-              <Td>Pune</Td>
-              <Td>988878787</Td>
-              <Td>17</Td>
-              <Td>✅/❌</Td>
-            </Tr>
-          </Tbody>
+        {vendorData}
         </Table>
       </TableContainer>
     </>
