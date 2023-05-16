@@ -7,7 +7,7 @@ const AdminTabs = () => {
       <Tabs isFitted variant='enclosed' align="center">
         <TabList  >
           <Link to={"/admin/fleet"}>
-            {" "}
+       
             <Tab>Fleet Managment</Tab>
           </Link>
           <Link to={"/admin/vendors"}>

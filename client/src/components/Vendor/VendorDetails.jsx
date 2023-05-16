@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import {ArrowBackIcon} from '@chakra-ui/icons'
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 const VendorDetails = () => {
   return (
     <>
@@ -63,7 +63,7 @@ const VendorDetails = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      <Outlet/>
+     
     </>
   );
 };
