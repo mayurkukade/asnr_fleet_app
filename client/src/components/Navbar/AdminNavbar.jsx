@@ -5,7 +5,15 @@ import "./adminnavbar.scss";
 import { Input } from "@chakra-ui/react";
 import { Button } from "@chakra-ui/react";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+
+
+
+
 const VendorNavbar = () => {
+
+const username = localStorage.getItem('persistname')
+
+
   return (
     <>
       <div className="nav">
@@ -16,14 +24,13 @@ const VendorNavbar = () => {
           </button>
         </div>
 
-        <h3>ASNR</h3>
 
         <div className="card">
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
 
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              User Name
+            {username}
             </MenuButton>
             <MenuList>
               <MenuItem>History</MenuItem>
@@ -37,6 +44,7 @@ const VendorNavbar = () => {
         </div>
       </div>
       <hr />
+   
     </>
   );
 };

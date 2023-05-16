@@ -1,6 +1,6 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Button } from "@chakra-ui/react";
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Select} from "@chakra-ui/react";
 import "./register.scss";
 import { Link } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
@@ -27,7 +27,6 @@ const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(registerValue);
-    
   };
 
   return (
@@ -91,6 +90,13 @@ const Register = () => {
                 onChange={registerHandler}
                 autoCapitalize="on"
               />
+
+<FormLabel>Select your role</FormLabel>     
+<Select placeholder='Select option'>
+  <option value='option1'>User</option>
+  <option value='option2'>Vendor</option>
+  <option value='option3'>Driver</option>
+</Select>
             </form>
           </FormControl>
 

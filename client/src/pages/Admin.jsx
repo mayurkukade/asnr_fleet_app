@@ -1,13 +1,20 @@
+
 import VendorNavbar from "../components/Navbar/AdminNavbar";
+
+import './admin.scss'
 import AdminTabs from "../components/adminTabs/AdminTabs";
-import "./vendor.scss";
+
 
 const Vendor = () => {
   return (
     <>
-      <VendorNavbar />
+    <div className="adminpage">
+    <VendorNavbar />
       <br />
       <AdminTabs/>
+    </div>
+    
+   
      
     </>
   );

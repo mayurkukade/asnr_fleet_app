@@ -1,38 +1,37 @@
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
-import { Link} from 'react-router-dom'
-import './admintabs.scss'
+import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
+import { Link, Outlet } from "react-router-dom";
+import "./admintabs.scss";
 const AdminTabs = () => {
   return (
     <>
-   
-    <Tabs align='center' isFitted  variant='soft-rounded' colorScheme='blue'>
-  <TabList>
-    <Tab Link={'/fleetmanegment'} >Fleet Managment</Tab>
-    <Tab  > <Link to={'/vendor'} >Vendor Managment</Link> </Tab>
-    <Tab>User Role Managment</Tab>
-    <Tab>Reports</Tab>
-    <hr />
-  </TabList>
+      <Tabs isFitted variant='enclosed' align="center">
+        <TabList  >
+          <Link to={"/admin/fleet"}>
+            {" "}
+            <Tab>Fleet Managment</Tab>
+          </Link>
+          <Link to={"/admin/vendors"}>
+            {" "}
+            <Tab>Vendor Managment</Tab>
+          </Link>
+          <Link to={"/admin/user"}>
+            {" "}
+            <Tab>User Role Managment</Tab>
+          </Link>
+          <Link to={"/admin/reports"}>
+            {" "}
+            <Tab>Reports</Tab>
+          </Link>
 
-  <TabPanels>
-    <TabPanel>
-      <p>Fleet Managment</p>
-    </TabPanel>
-    <TabPanel>
-   
-    </TabPanel>
-    <TabPanel>
-      <p>User Role Managment</p>
-    </TabPanel>
-    <TabPanel>
-      <p>Reports</p>
-    </TabPanel>
-   
-  </TabPanels>
-</Tabs>
+          <hr />
+        </TabList>
 
+        <TabPanels>
+          <Outlet />
+        </TabPanels>
+      </Tabs>
     </>
-  )
-}
+  );
+};
 
-export default AdminTabs
+export default AdminTabs;

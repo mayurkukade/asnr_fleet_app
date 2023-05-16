@@ -9,12 +9,13 @@ import {
   Button,
 } from "@chakra-ui/react";
 import {ArrowBackIcon} from '@chakra-ui/icons'
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 const VendorDetails = () => {
   return (
     <>
-    <Button style={{'marginLeft':'1rem'}}> <Link to={"/admin"}><ArrowBackIcon/>Back</Link> </Button>
-      <TableContainer>
+
+    <Link to={"/admin/vendors"}><Button margin={'0.5rem'} > <ArrowBackIcon/>Back </Button></Link>
+      <TableContainer marginBottom={'5rem'}>
         <Table variant="simple">
           <Thead>
             <Tr>
@@ -35,9 +36,34 @@ const VendorDetails = () => {
               <Td>8</Td>
               <Td>1/4/23</Td>
             </Tr>
+            <Tr>
+              <Td>123</Td>
+              <Td>xyz</Td>
+              <Td>Pune</Td>
+              <Td>988878787</Td>
+              <Td>8</Td>
+              <Td>1/4/23</Td>
+            </Tr>
+            <Tr>
+              <Td>123</Td>
+              <Td>xyz</Td>
+              <Td>Pune</Td>
+              <Td>988878787</Td>
+              <Td>8</Td>
+              <Td>1/4/23</Td>
+            </Tr>
+            <Tr>
+              <Td>123</Td>
+              <Td>xyz</Td>
+              <Td>Pune</Td>
+              <Td>988878787</Td>
+              <Td>8</Td>
+              <Td>1/4/23</Td>
+            </Tr>
           </Tbody>
         </Table>
       </TableContainer>
+      <Outlet/>
     </>
   );
 };
