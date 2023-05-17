@@ -23,7 +23,7 @@ const AdminTabs = () => {
             <Tab>Reports</Tab>
           </Link>
 
-          <hr />
+          
         </TabList>
 
         <TabPanels>

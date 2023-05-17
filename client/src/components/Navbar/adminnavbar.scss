@@ -42,3 +42,18 @@
   }
  
 }
+
+.navUpper{
+  width: 100vw;
+
+  text-align: center;
+  padding: 1.5%;
+  .searchbarUpper{
+    button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+    }
+  }
+}

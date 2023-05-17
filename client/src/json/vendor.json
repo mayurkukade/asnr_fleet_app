@@ -11,7 +11,7 @@
         {
             "vendorID":"2",
             "vendorName":"Dubey Pvt.Ltd",
-            "Location":"Pune",
+            "Location":"Nagpur",
             "PhoneNo":"98897998",
             "TotalTrips":"19",
             "Accept":["true","false"]
@@ -19,7 +19,7 @@
         {
             "vendorID":"3",
             "vendorName":"Despande Pvt.Ltd",
-            "Location":"Pune",
+            "Location":"Nashik",
             "PhoneNo":"98897998",
             "TotalTrips":"17",
             "Accept":["true","false"]
