@@ -14,7 +14,7 @@ import {
 const VendorManegment = () => {
   
   console.log(data);
-  const vendorData = data.vendor.map((vendorData,i) => {
+  const vendorData = data.vendors.map((vendorData,i) => {
     return (
       <>
       <Tbody key={i}>

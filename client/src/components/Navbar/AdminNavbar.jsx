@@ -7,46 +7,54 @@ import { Button } from "@chakra-ui/react";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { useState } from "react";
 
-import vendorData from '../../json/vendor.json'
-import { useEffect } from "react";
+import vendorJson from "../../json/vendor.json";
+
 const VendorNavbar = () => {
+  const [searchData, setSeachData] = useState("");
+  const username = localStorage.getItem("persistname");
 
-const username = localStorage.getItem('persistname')
+  const vendorData = vendorJson.vendors
+    .filter((vendor) =>
+      vendor.vendorName.toLowerCase().includes(searchData.toLowerCase())
+    )
+    .map((vendor) => {
+      return (
+        <>
+        {
+          searchData? <ul className="listGroup" key={vendor.vendorID}>
+          <li className="listItem">{vendor.vendorName}</li>
+          <li className="listItem">{vendor.Location}</li>
+        </ul> : ' '
+        }
+          
+        </>
+      );
+    });
 
-const [search,setSearch] = useState([])
-const [searchResult,setSearchResult] = useState([])
-useEffect(()=>{
-  vendorData.vendor.map((i)=>{
-  if(i.Location == search){
-   return setSearchResult(i.Location)
-  }else{
-    setSearchResult(' ')
-  }
-   })
-},[search])
-console.log(searchResult)
+
 
   return (
     <>
       <div className="nav">
         <div className="searchbar">
           <button>
-            <Input placeholder="Search" onChange={(e)=>setSearch(e.target.value)} value={search}  />
+            <Input
+              type="text"
+              placeholder="Search"
+              onChange={(e) => setSeachData(e.target.value)}
+              value={searchData}
+            />
             <SearchIcon className="search" />
           </button>
-          <li>
-            <p>{searchResult}</p>
-          </li>
-      
+          {vendorData}
         </div>
-
 
         <div className="card">
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
 
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            {username}
+              {username}
             </MenuButton>
             <MenuList>
               <MenuItem>History</MenuItem>
@@ -60,7 +68,6 @@ console.log(searchResult)
         </div>
       </div>
       <hr />
-   
     </>
   );
 };
