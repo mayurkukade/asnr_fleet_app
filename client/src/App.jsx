@@ -9,6 +9,7 @@ import Reports from "./components/Reports/Reports";
 import VendorManegment from "./components/Vendor/VendorManegment";
 import VendorDetails from "./components/Vendor/VendorDetails";
 import SearchPage from "./pages/SearchPage";
+import VendorTable from "./reactTable/VendorTable";
 const App = () => {
   return (
     <>
@@ -16,12 +17,13 @@ const App = () => {
         <Route path="/signup" element={<Register />} />
 
         <Route path="/" element={<SignIn />} />
+       
 
         <Route path="/admin" element={<Admin />}>
           <Route path="/admin/:search" element={<SearchPage/>} />
           <Route path="/admin/user" element={<UserRoleManegment />} />
           <Route path="/admin/reports" element={<Reports />} />
-          <Route path="/admin/vendors" element={<VendorManegment />} />
+          <Route path="/admin/vendors" element={<VendorTable />} />
           <Route
             path="/admin/vendors/vendordetails"
             element={<VendorDetails />}
