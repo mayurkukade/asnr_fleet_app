@@ -5,43 +5,42 @@ import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
 import jwt_decode from "jwt-decode";
-import { useDispatch } from "react-redux";
-import { tokenState } from "../features/googleTokenSlice";
+import { setCredentials } from "../api/authSlice";
+import { useLoginMutation } from "../api/usersApiSlice";
+
+import { useSelector,useDispatch } from "react-redux";
 const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const [registerValue, setRegisterValue] = useState({
     email: "",
     password: "",
   });
+const [login,{useLoading}] = useLoginMutation()
+  // function handleCallbackResponse(response) {
+  //   console.log("Ended JWT Id token:" + response.credential);
+  //   const userObject = jwt_decode(response.credential);
+  //   console.log(userObject);
 
-  function handleCallbackResponse(response) {
-    console.log("Ended JWT Id token:" + response.credential);
-    const userObject = jwt_decode(response.credential);
-    console.log(userObject);
+  
+   
+// localStorage.setItem('persistname',userObject.given_name)
+//     navigate("/admin");
+//   }
 
-    console.log(
-      userObject.email,
-      userObject.family_name,
-      userObject.given_name
-    );
-    dispatch(tokenState(userObject.given_name));
-localStorage.setItem('persistname',userObject.given_name)
-    navigate("/admin");
-  }
+  // useEffect(() => {
+  //   google.accounts.id.initialize({
+  //     client_id:
+  //       "854208234654-kc0p94c1rrumg1mgllpkq1ses2992mp8.apps.googleusercontent.com",
+  //     callback: handleCallbackResponse,
+  //   });
 
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id:
-        "854208234654-kc0p94c1rrumg1mgllpkq1ses2992mp8.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
-
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-      theme: "outline",
-      size: "large",
-    });
-  },);
+  //   google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+  //     theme: "outline",
+  //     size: "large",
+  //   });
+  // },);
   const registerHandler = (e) => {
     const { name, value } = e.target;
     setRegisterValue((preval) => {
@@ -52,9 +51,20 @@ localStorage.setItem('persistname',userObject.given_name)
     });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
-    console.log(registerValue);
+    console.log(registerValue)
+    const {email,password} = registerValue
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate('/admin/fleet');
+    } catch (err) {
+      alert('auth failed')
+     
+    }
+
+
   };
 
   return (
@@ -85,10 +95,10 @@ localStorage.setItem('persistname',userObject.given_name)
                 onChange={registerHandler}
               />
             </form>
-            <h4>OR</h4>
+            {/* <h4>OR</h4>
             <div className="googleButton">
               <div id="signInDiv"></div>
-            </div>
+            </div> */}
           </FormControl>
 
           <Button type="submit" colorScheme="blue" onClick={submitHandler}>

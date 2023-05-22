@@ -1,7 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit'
-import googleReducer from '../../features/googleTokenSlice'
+// import googleReducer from '../../features/googleTokenSlice'
+import authReducer from '../../api/authSlice'
+import { apiSlice } from '../../api/apiSlice'
 export const store = configureStore({
-    reducer:{
-        googleToken: googleReducer
-    }
+    reducer: {
+        [apiSlice.reducerPath]: apiSlice.reducer,
+        auth: authReducer,
+      },
+      middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(apiSlice.middleware),
+      devTools: true,
 })

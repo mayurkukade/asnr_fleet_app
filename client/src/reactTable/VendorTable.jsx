@@ -6,7 +6,6 @@ import {
     Table,
     Thead,
     Tbody,
-   
     Tr,
     Th,
     Td,
@@ -17,6 +16,7 @@ import {
 const VendorTable = () => {
   const data = React.useMemo(() => vendorData.vendors, []);
   console.log(data)
+ 
   const columns = React.useMemo(() => [
     {
       Header: "ID",
@@ -53,18 +53,19 @@ const VendorTable = () => {
     nextPage,
     previousPage,
     setPageSize,
+    
     state: { pageIndex, pageSize }, } =
     useTable({ columns, data,initialState:{pageIndex: 0} },useSortBy,usePagination);
   return (
 
     
       <TableContainer>
-        <Table {...getTableProps()}>
+        <Table  {...getTableProps()}>
           <Thead>
-            {headerGroups.map((headerGroup) => (
-              <Tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroups.map((headerGroup,i) => (
+              <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <Th {...column.getHeaderProps(column.getSortByToggleProps)}>
+                  <Th key={i} {...column.getHeaderProps(column.getSortByToggleProps)}>
                     {column.render("Header")}
                     <span>
                     {column.isSorted
@@ -80,12 +81,12 @@ const VendorTable = () => {
             ))}
           </Thead>
           <Tbody {...getTableBodyProps()}>
-            {page.map((row) => {
+            {page.map((row,i) => {
               prepareRow(row);
               return (
-                <Tr {...row.getRowProps()}>
+                <Tr key={i} {...row.getRowProps()}>
                   {row.cells.map((cell) => (
-                    <Td {...cell.getCellProps()}> {cell.render("Cell")} </Td>
+                    <Td key={i} {...cell.getCellProps()}> {cell.render("Cell")} </Td>
                   ))}
                 </Tr>
               );
