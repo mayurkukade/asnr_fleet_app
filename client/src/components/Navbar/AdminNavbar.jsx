@@ -112,8 +112,8 @@ const VendorNavbar = () => {
         </div>
         <Avtar />
       </div>
-      <br />
-      <AdminTabs />
+    
+     <hr/>
       
       </>
       )

@@ -1,33 +1,31 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 import { setCredentials } from "../api/authSlice";
 import { useLoginMutation } from "../api/usersApiSlice";
-
-import { useSelector,useDispatch } from "react-redux";
+import { useToast } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+  const toast = useToast();
   const [registerValue, setRegisterValue] = useState({
     email: "",
     password: "",
   });
-const [login,{useLoading}] = useLoginMutation()
+  const [login, { useLoading }] = useLoginMutation();
   // function handleCallbackResponse(response) {
   //   console.log("Ended JWT Id token:" + response.credential);
   //   const userObject = jwt_decode(response.credential);
   //   console.log(userObject);
 
-  
-   
-// localStorage.setItem('persistname',userObject.given_name)
-//     navigate("/admin");
-//   }
+  // localStorage.setItem('persistname',userObject.given_name)
+  //     navigate("/admin");
+  //   }
 
   // useEffect(() => {
   //   google.accounts.id.initialize({
@@ -51,20 +49,25 @@ const [login,{useLoading}] = useLoginMutation()
     });
   };
 
-  const submitHandler = async(e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(registerValue)
-    const {email,password} = registerValue
+    console.log(registerValue);
+    const { email, password } = registerValue;
+
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-      navigate('/admin/fleet');
-    } catch (err) {
-      alert('auth failed')
      
+      toast({ status: "success", position: "top", description: "Successful" });
+      navigate("/admin/fleet");
+    } catch (err) {
+      console.log(err.data.error.message);
+      toast({
+        status: "error",
+        position: "top",
+        description: err.data.error.message,
+      });
     }
-
-
   };
 
   return (

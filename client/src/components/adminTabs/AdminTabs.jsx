@@ -2,16 +2,16 @@ import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
 import "./admintabs.scss";
 import { useNavigate } from "react-router-dom";
-import {useEffect} from "react";
+import { useEffect } from "react";
 // isFitted variant='enclosed' align="center"
 const AdminTabs = () => {
-  const navigate = useNavigate()
-  useEffect(()=>{
-navigate("/admin/fleet")
-  },[])
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/admin/fleet");
+  }, []);
   return (
     <>
-      <Tabs isFitted >
+      <Tabs isFitted>
         <TabList>
           <Link to={"/admin/fleet"}>
             <Tab> Fleet Managment</Tab>
@@ -28,8 +28,6 @@ navigate("/admin/fleet")
             {" "}
             <Tab>Reports</Tab>
           </Link>
-
-          
         </TabList>
 
         <TabPanels>

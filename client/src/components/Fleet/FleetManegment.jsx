@@ -1,12 +1,12 @@
-
-
+import { useVendorDetailsQuery } from "../../api/vendorSlice";
 const FleetManegment = () => {
+  const { data, isLoading, isError } = useVendorDetailsQuery();
+  console.log(data);
   return (
     <>
-    <h1>Fleet Manegment</h1>
-      
+      <h1>Fleet Manegment</h1>
     </>
-  )
-}
+  );
+};
 
-export default FleetManegment
+export default FleetManegment;

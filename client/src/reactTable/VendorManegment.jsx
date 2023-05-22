@@ -1,7 +1,8 @@
-import vendorData from "../json/vendor.json";
+import tripManegment from '../json/tripManegment.json'
 import { useTable, usePagination, useSortBy } from "react-table";
 
 import React from "react";
+
 import {
     Table,
     Thead,
@@ -13,53 +14,50 @@ import {
     TableContainer,
   } from '@chakra-ui/react'
 
-const VendorTable = () => {
-  const data = React.useMemo(() => vendorData.vendors, []);
+const VendorManegment = () => {
+    const data = React.useMemo(() => tripManegment.drivers, []);
 
- 
-  const columns = React.useMemo(() => [
-    {
-      Header: "ID",
-      accessor: "vendorID",
-    },
-    {
-      Header: "Vendor Name",
-      accessor: "vendorName",
-    },
-    {
-      Header: "Location",
-      accessor: "Location",
-    },
-    {
-      Header: "Phone No.",
-      accessor: "PhoneNo",
-    },
-    {
-      Header: "Total Trips",
-      accessor: "TotalTrips",
-    },
-    {
-      Header: "Accept",
-      accessor: "Accept",
-    },
-  ],[]);
-
-  const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    pageCount,
-    gotoPage,
-    nextPage,
-    previousPage,
-    setPageSize,
-    
-    state: { pageIndex, pageSize }, } =
-    useTable({ columns, data,initialState:{pageIndex: 0} },useSortBy,usePagination);
-  return (
-
-    
-      <TableContainer>
+    const columns = React.useMemo(() => [
+        {
+          Header: "ID",
+          accessor: "DriverID",
+        },
+        {
+          Header: "Driver's Name",
+          accessor: "Driver's Name",
+        },
+        {
+          Header: "Location",
+          accessor: "Location",
+        },
+        {
+          Header: "Phone No.",
+          accessor: "Phone No",
+        },
+        {
+          Header: "Total Trips",
+          accessor: "Total Trips",
+        },
+        {
+          Header: "Driver's Licence No",
+          accessor: "Driver's Licence No",
+        },
+      ],[]);
+      const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow,
+        canPreviousPage,
+        canNextPage,
+        pageOptions,
+        pageCount,
+        gotoPage,
+        nextPage,
+        previousPage,
+        setPageSize,
+        
+        state: { pageIndex, pageSize }, } =
+        useTable({ columns, data,initialState:{pageIndex: 0} },useSortBy,usePagination);
+    return (
+    <>
+       <TableContainer>
         <Table  {...getTableProps()}>
           <Thead>
             {headerGroups.map((headerGroup,i) => (
@@ -139,7 +137,8 @@ const VendorTable = () => {
       </div>
     
       </TableContainer>
-  );
-};
+    </>
+  )
+}
 
-export default VendorTable;
+export default VendorManegment

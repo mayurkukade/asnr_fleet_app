@@ -1,13 +1,17 @@
-import VendorNavbar from "../components/Navbar/AdminNavbar"
-import VendorDetails from "../components/Vendor/VendorDetails"
+
+import AdminNavbar from '../components/Navbar/AdminNavbar'
+import VendorTabs from '../components/Vendor/VendorTabs'
 const VendorPage = () => {
   return (
-    <div>
-         <VendorNavbar />
-         <br/>
-         <VendorDetails/>
-    </div>
+    <>
+      <AdminNavbar/>
+      <VendorTabs/>
+    
+
+      
+    </>
   )
 }
 
 export default VendorPage
+

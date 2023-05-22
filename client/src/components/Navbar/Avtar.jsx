@@ -1,10 +1,12 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+
 import { Avatar } from "@chakra-ui/react"
 import './adminnavbar.scss'
 const Avtar = () => {
-    const username = localStorage.getItem("persistname");
+    const username = localStorage.getItem("userInfo");
+   console.log(JSON.parse(username).results.user[0].username)
   return (
     <>
       <div className="card">
@@ -12,7 +14,7 @@ const Avtar = () => {
 
           <Menu>
             <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              {username}
+              {JSON.parse(username).results.user[0].username}
             </MenuButton>
             <MenuList>
               <MenuItem>History</MenuItem>
