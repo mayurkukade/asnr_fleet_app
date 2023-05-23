@@ -32,7 +32,7 @@ const VendorManegment = () => {
         },
         {
           Header: "Phone No.",
-          accessor: "Phone No",
+          accessor: "Phone",
         },
         {
           Header: "Total Trips",

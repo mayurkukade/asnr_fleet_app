@@ -3,7 +3,7 @@ import AdminNavbar from '../Navbar/AdminNavbar'
 import VendorTabs from "./VendorTabs"
 const Vendor = () => {
 
-    const [data,isLoading,isError] = usevenderDetailsQuery()
+    const [data] = usevenderDetailsQuery()
     console.log(data)
   return (
     <div>

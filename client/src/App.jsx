@@ -28,13 +28,16 @@ const App = () => {
           <Route path="/admin/user" element={<UserRoleManegment />} />
           <Route path="/admin/reports" element={<Reports />} />
           <Route path="/admin/vendors" element={<VendorTable />} />
-          <Route path="/admin/vendors/vendordetails"element={<VendorDetails />}/>
+          <Route
+            path="/admin/vendors/vendordetails"
+            element={<VendorDetails />}
+          />
           <Route path="/admin/fleet" element={<FleetManegment />} />
         </Route>
         <Route path="/vendors" element={<VendorPage />}>
-          <Route path="/vendors/tripmanegment" element={<VendorManegment/>} />
-          <Route path="/vendors/reviews" element={<Reviews/>} />
-          <Route path="/vendors/adddriver" element={<AddDriver/>} />
+          <Route path="/vendors/tripmanegment" element={<VendorManegment />} />
+          <Route path="/vendors/reviews" element={<Reviews />} />
+          <Route path="/vendors/adddriver" element={<AddDriver />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

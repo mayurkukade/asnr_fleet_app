@@ -1,7 +1,7 @@
 import { useVendorDetailsQuery } from "../../api/vendorSlice";
-import { useState } from "react";
+
 const FleetManegment = () => {
-  const { data, isLoading, isError } = useVendorDetailsQuery();
+  const { data } = useVendorDetailsQuery();
 
  console.log(data)
   return (

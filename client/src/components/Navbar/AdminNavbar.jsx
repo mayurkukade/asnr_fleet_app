@@ -15,7 +15,7 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import AdminTabs from "../adminTabs/AdminTabs";
+
 import vendorJson from "../../json/vendor.json";
 import Avtar from "./Avtar";
 

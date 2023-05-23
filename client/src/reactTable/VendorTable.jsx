@@ -31,8 +31,8 @@ const VendorTable = () => {
       accessor: "Location",
     },
     {
-      Header: "Phone No.",
-      accessor: "PhoneNo",
+      Header: "Phone",
+      accessor: "Phone",
     },
     {
       Header: "Total Trips",

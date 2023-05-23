@@ -2,9 +2,9 @@
     "drivers":[
         {
             "DriverID":"1",
-            "Driver's Name" :"XYZ",
+            "Driver's Name" :"ABC",
             "Location":"Pune",
-            "Phone NO." :"6876465487",
+            "Phone":"6876465487",
             "Total Trips":"17",
             "Driver's Licence No" :"5555"
         },
@@ -12,7 +12,7 @@
             "DriverID":"2",
             "Driver's Name" :"XYZ",
             "Location":"Pune",
-            "Phone NO." :"6876465487",
+            "Phone":"6876465487",
             "Total Trips":"17",
             "Driver's Licence No" :"5555"
         },
@@ -20,7 +20,7 @@
             "DriverID":"3",
             "Driver's Name" :"XYZ",
             "Location":"Pune",
-            "Phone NO." :"6876465487",
+            "Phone":"6876465487",
             "Total Trips":"17",
             "Driver's Licence No" :"5555"
         },
@@ -28,7 +28,7 @@
             "DriverID":"4",
             "Driver's Name" :"XYZ",
             "Location":"Pune",
-            "Phone NO." :"6876465487",
+            "Phone":"6876465487",
             "Total Trips":"17",
             "Driver's Licence No" :"5555"
         },
@@ -36,7 +36,7 @@
             "DriverID":"5",
             "Driver's Name" :"XYZ",
             "Location":"Pune",
-            "Phone NO." :"6876465487",
+            "Phone":"6876465487",
             "Total Trips":"17",
             "Driver's Licence No" :"5555"
         }

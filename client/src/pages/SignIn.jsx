@@ -57,7 +57,7 @@ const SignIn = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-     
+     console.log(res)
       toast({ status: "success", position: "top", description: "Successful" });
       navigate("/admin/fleet");
     } catch (err) {
