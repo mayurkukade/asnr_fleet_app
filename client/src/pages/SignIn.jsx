@@ -78,7 +78,7 @@ const SignIn = () => {
       <Box className="app_register_form">
         <Box
           className="app_register_form2 "
-          style={{ width: "50%", height: "60vh", fontSize: "20px" }}
+          style={{ width: "50%", height: "65vh", fontSize: "20px" }}
         >
           <h1 style={{ fontWeight: "700" }}>Sign In</h1>
           <FormControl>
