@@ -57,7 +57,7 @@ const SignIn = () => {
     try {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
-     console.log(res)
+
       toast({ status: "success", position: "top", description: "Successful" });
       navigate("/admin/fleet");
     } catch (err) {
@@ -71,11 +71,14 @@ const SignIn = () => {
   };
 
   return (
-    <div className="app_register">
+    <div className="app_register" style={{ fontSize: "1.3rem" }}>
+      <HomeImag />
       <div className="app_register_form">
-        <div className="app_register_form2">
-          <h1>Sing In</h1>
-
+        <div
+          className="app_register_form2 "
+          style={{ width: "50%", height: "50vh" }}
+        >
+          <h1 style={{fontWeight:"700"}}>Sign In</h1>
           <FormControl>
             <form>
               <FormLabel>Email</FormLabel>
@@ -86,36 +89,52 @@ const SignIn = () => {
                 name="email"
                 value={registerValue.email}
                 onChange={registerHandler}
+                placeholder="Email"
               />
               <FormLabel>Password</FormLabel>
               <Input
                 type="password"
                 id="current-password"
                 autoComplete="on"
-                style={{ border: "1px solid black " }}
+                style={{ border: "1px solid black" }}
                 name="password"
                 value={registerValue.password}
                 onChange={registerHandler}
+                placeholder="Password"
               />
             </form>
             {/* <h4>OR</h4>
-            <div className="googleButton">
-              <div id="signInDiv"></div>
-            </div> */}
+         <div className="googleButton">
+           <div id="signInDiv"></div>
+         </div> */}
           </FormControl>
 
-          <Button type="submit" colorScheme="blue" onClick={submitHandler}>
-            Submit
-          </Button>
-          <p>
-            Don't have an account? Please
-            <span>
-              <Link to="/signup">Sing Up</Link>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Button
+              type="submit"
+              colorScheme="blue"
+              onClick={submitHandler}
+              style={{ fontSize: "1.2rem",marginTop:'20px' }}
+            >
+              Submit
+            </Button>
+          </div>
+          <p style={{ paddingTop: "14px" }}>
+            Don&apos;t have an account?
+            <br /> Please
+            <span style={{fontWeight:'600'}}>
+              <Link to="/signup"> SignUp</Link>
+              
             </span>
           </p>
         </div>
       </div>
-      <HomeImag />
     </div>
   );
 };
