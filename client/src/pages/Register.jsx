@@ -33,7 +33,7 @@ const Register = () => {
     <div className="app_register">
       <HomeImag />
       <div className="app_register_form">
-        <div className="app_register_form2" style={{ width: "65%", height:"90vh"}}>
+        <div className="app_register_form2">
           <h1 style={{fontWeight:"700"}}>Sign Up</h1>
           <p>Create an account to start car booking</p>
 

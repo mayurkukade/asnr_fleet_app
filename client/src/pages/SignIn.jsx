@@ -76,7 +76,7 @@ const SignIn = () => {
       <div className="app_register_form">
         <div
           className="app_register_form2 "
-          style={{ width: "50%", height: "50vh" }}
+          style={{ width: "50%", height: "55vh" }}
         >
           <h1 style={{fontWeight:"700"}}>Sign In</h1>
           <FormControl>
@@ -125,7 +125,7 @@ const SignIn = () => {
               Submit
             </Button>
           </div>
-          <p style={{ paddingTop: "14px" }}>
+          <p style={{ paddingTop: "1rem" }}>
             Don&apos;t have an account?
             <br /> Please
             <span style={{fontWeight:'600'}}>
