@@ -21,7 +21,7 @@ const VendorTable = () => {
     }, 100);
 
     return () => clearTimeout(getData);
-  }, []);
+  }, [v]);
 
   console.log(vendorFetchData);
 

@@ -14,20 +14,30 @@ import {
   Td,
   TableContainer,
 } from "@chakra-ui/react";
-import { useState } from "react";
-
+import { useState,useEffect } from "react";
+import { useVendorDetailsQuery } from "../../api/vendorSlice";
 import vendorJson from "../../json/vendor.json";
 import Avtar from "./Avtar";
 
 const VendorNavbar = () => {
+  const {data:v} = useVendorDetailsQuery()
   const [searchData, setSeachData] = useState("");
-  
+  const [vendorFetchData, setVendorFetchData] = useState([]);
 
-  const vendorData = vendorJson.vendors
+
+useEffect(() => {
+  const getData = setTimeout(() => {
+    setVendorFetchData(v.results);
+  }, 100);
+
+  return () => clearTimeout(getData);
+}, [v]);
+console.log(vendorFetchData,'search')
+  const vendorData = vendorFetchData
     .filter((vendor) =>
-      vendor.vendorName.toLowerCase().includes(searchData.toLowerCase())
-    ||  vendor.Location.toLowerCase().includes(searchData.toLowerCase())
-    ||  vendor.vendorID.toLowerCase().includes(searchData.toLowerCase())
+      vendor.name.toLowerCase().includes(searchData.toLowerCase())
+    ||  vendor.location.toLowerCase().includes(searchData.toLowerCase())
+    // ||  vendor.id.toLowerCase().includes(searchData.toLowerCase())
     )
     .map((vendor) => {
       return (
@@ -45,23 +55,23 @@ const VendorNavbar = () => {
               <Th>Accept/Reject</Th>
             </Tr>
           </Thead>
-          <Tbody key={vendor.vendorID}>
+          <Tbody key={vendor.id}>
         <Tr>
-          <Td>{vendor.vendorID}</Td>
+          <Td>{vendor.id}</Td>
           <Td>
             <Link to="/admin/vendors/vendordetails">
-              {vendor.vendorName}
+              {vendor.name}
             </Link>{" "}
           </Td>
           <Td align="center">
-            <Link to="/admin/vendors/vendordetails">{vendor.Location}</Link>
+            <Link to="/admin/vendors/vendordetails">{vendor.location}</Link>
           </Td>
           <Td>
-            <Link to="/admin/vendors/vendordetails">{vendor.PhoneNo}</Link>
+            <Link to="/admin/vendors/vendordetails">{vendor.phone_no}</Link>
           </Td>
           <Td>
             <Link to="/admin/vendors/vendordetails">
-              {vendor.TotalTrips}
+              {vendor.total_trips}
             </Link>
           </Td>
           <Td>
