@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@chakra-ui/react";
-import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { FormControl, Input, Flex, Icon, Text,Box } from "@chakra-ui/react";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
@@ -73,20 +73,24 @@ const SignIn = () => {
   };
 
   return (
-    <div className="app_register">
+    <Box className="app_register">
       <HomeImag />
-      <div className="app_register_form">
-        <div
+      <Box className="app_register_form">
+        <Box
           className="app_register_form2 "
-          style={{ width: "50%", height: "55vh", fontSize:'20px' }}
+          style={{ width: "50%", height: "60vh", fontSize: "20px" }}
         >
           <h1 style={{ fontWeight: "700" }}>Sign In</h1>
           <FormControl>
-            <form >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <BiMailSend style={{fontSize: "25px", marginRight: "5px" }} />
-                <span>Email</span>
-              </div>  
+            <form>
+              <Flex alignItems="center" padding="10px 0 0 0">
+                <Icon
+                  as={BiMailSend}
+                  fontSize="25px"
+                  // marginRight="2px"
+                />
+                <Text>Email</Text>
+              </Flex>
               <Input
                 type="email"
                 id="email"
@@ -96,10 +100,14 @@ const SignIn = () => {
                 onChange={registerHandler}
                 placeholder="Email"
               />
-               <div style={{ display: "flex", alignItems: "center" ,padding:"10px 0 0 0" }}>
-                <RiLockPasswordLine style={{fontSize: "25px", marginRight: "5px",}} />
-                <span>Password</span>
-              </div>  
+              <Flex alignItems="center" padding="10px 0 0 0">
+                <Icon
+                  as={RiLockPasswordLine}
+                  fontSize="25px"
+                  // marginRight="2px"
+                />
+                <Text>Password</Text>
+              </Flex>
               <Input
                 type="password"
                 id="current-password"
@@ -112,12 +120,12 @@ const SignIn = () => {
               />
             </form>
             {/* <h4>OR</h4>
-         <div className="googleButton">
-           <div id="signInDiv"></div>
-         </div> */}
+         <Box className="googleButton">
+           <Box id="signInBox"></Box>
+         </Box> */}
           </FormControl>
 
-          <div
+          <Box
             style={{
               display: "flex",
               justifyContent: "center",
@@ -132,17 +140,17 @@ const SignIn = () => {
             >
               Submit
             </Button>
-          </div>
-          <p style={{ paddingTop: "5px", fontSize: "1rem" }}>
+          </Box>
+          <Text paddingTop="5px" fontSize="1px">
             Don&apos;t have an account?
             <br /> Please
             <span style={{ fontWeight: "600" }}>
               <Link to="/signup"> SignUp</Link>
             </span>
-          </p>
-        </div>
-      </div>
-    </div>
+          </Text>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
