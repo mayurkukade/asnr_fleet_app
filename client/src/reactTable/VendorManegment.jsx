@@ -1,6 +1,5 @@
 import tripManegment from '../json/tripManegment.json'
 import { useTable, usePagination, useSortBy } from "react-table";
-
 import React from "react";
 
 import {
@@ -17,6 +16,7 @@ import {
 const VendorManegment = () => {
     const data = React.useMemo(() => tripManegment.drivers, []);
 
+console.log(data,'v')
     const columns = React.useMemo(() => [
         {
           Header: "ID",
