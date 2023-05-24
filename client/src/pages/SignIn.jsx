@@ -130,6 +130,7 @@ const SignIn = () => {
             <br /> Please
             <span style={{fontWeight:'600'}}>
               <Link to="/signup"> SignUp</Link>
+              
             </span>
           </p>
         </div>
