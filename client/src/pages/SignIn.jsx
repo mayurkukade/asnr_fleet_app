@@ -120,12 +120,12 @@ const SignIn = () => {
               type="submit"
               colorScheme="blue"
               onClick={submitHandler}
-              style={{ fontSize: "1.2rem",marginTop:'20px' }}
+              style={{ fontSize: "15px",marginTop:'15px' }}
             >
               Submit
             </Button>
           </div>
-          <p style={{ paddingTop: "8px" }}>
+          <p style={{ paddingTop: "5px" , fontSize:'1rem'}}>
             Don&apos;t have an account?
             <br /> Please
             <span style={{fontWeight:'600'}}>
