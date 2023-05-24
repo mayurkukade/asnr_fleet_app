@@ -32,7 +32,7 @@ const VendorTable = () => {
     },
     {
       Header: "Phone",
-      accessor: "Phone",
+      accessor: "PhoneNo",
     },
     {
       Header: "Total Trips",
