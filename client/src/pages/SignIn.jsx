@@ -71,7 +71,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="app_register" style={{ fontSize: "1.3rem" }}>
+    <div className="app_register" >
       <HomeImag />
       <div className="app_register_form">
         <div
@@ -125,7 +125,7 @@ const SignIn = () => {
               Submit
             </Button>
           </div>
-          <p style={{ paddingTop: "1rem" }}>
+          <p style={{ paddingTop: "8px" }}>
             Don&apos;t have an account?
             <br /> Please
             <span style={{fontWeight:'600'}}>
