@@ -32,7 +32,9 @@
         padding: 5px;
       }
       p {
+        text-align: center;
         padding: 10px;
+        font-size: 1.3rem;
         span{
           color: green;
         }
@@ -45,8 +47,15 @@
     width: 100vw;
     height: 100vh;
   }
-  Button{
-    margin-top: 15px;
+  .button {
+    display: flex;
+    justify-content: center;
+    Button{
+      font-size: 1.3rem;
+      width: 160px;
+      margin-top: 15px;
+  
+    }
   }
   
 }
