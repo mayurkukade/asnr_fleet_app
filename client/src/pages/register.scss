@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   flex: 50%;
 
   .app_register_form {
@@ -22,7 +22,7 @@
       -moz-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       width: 40vw;
-      height: 95vh;
+      height: 98vh;
       h4{
         text-align: center;
         padding: 15px;

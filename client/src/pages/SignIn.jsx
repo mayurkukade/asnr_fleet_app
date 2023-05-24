@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Button } from "@chakra-ui/react";
-import { FormControl, Input, Flex, Icon, Text,Box } from "@chakra-ui/react";
+import {
+  FormControl,
+  Input,
+  Flex,
+  Icon,
+  Text,
+  Box,
+  FormLabel,
+} from "@chakra-ui/react";
 import "./register.scss";
 import { Link, useNavigate } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
@@ -75,21 +83,17 @@ const SignIn = () => {
   return (
     <Box className="app_register">
       <HomeImag />
-      <Box className="app_register_form">
+      <Box className="app_register_form ">
         <Box
           className="app_register_form2 "
-          style={{ width: "50%", height: "65vh", fontSize: "20px" }}
+          style={{ width: "50%", height: "55%", fontSize: "20px" }}
         >
           <h1 style={{ fontWeight: "700" }}>Sign In</h1>
           <FormControl>
             <form>
-              <Flex alignItems="center" padding="10px 0 0 0">
-                <Icon
-                  as={BiMailSend}
-                  fontSize="25px"
-                  // marginRight="2px"
-                />
-                <Text>Email</Text>
+              <Flex paddingTop={"10px"}>
+                <Icon as={BiMailSend} fontSize="25px"></Icon>
+                <FormLabel>Email</FormLabel>
               </Flex>
               <Input
                 type="email"
@@ -100,13 +104,9 @@ const SignIn = () => {
                 onChange={registerHandler}
                 placeholder="Email"
               />
-              <Flex alignItems="center" padding="10px 0 0 0">
-                <Icon
-                  as={RiLockPasswordLine}
-                  fontSize="25px"
-                  // marginRight="2px"
-                />
-                <Text>Password</Text>
+              <Flex paddingTop={"10px"}>
+                <Icon as={RiLockPasswordLine} fontSize="25px"></Icon>
+                <FormLabel>Password</FormLabel>
               </Flex>
               <Input
                 type="password"
