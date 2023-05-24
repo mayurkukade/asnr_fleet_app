@@ -9,6 +9,8 @@ import { setCredentials } from "../api/authSlice";
 import { useLoginMutation } from "../api/usersApiSlice";
 import { useToast } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
+import { BiMailSend } from "react-icons/Bi";
+import { RiLockPasswordLine } from "react-icons/Ri";
 const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -71,17 +73,20 @@ const SignIn = () => {
   };
 
   return (
-    <div className="app_register" >
+    <div className="app_register">
       <HomeImag />
       <div className="app_register_form">
         <div
           className="app_register_form2 "
-          style={{ width: "50%", height: "55vh" }}
+          style={{ width: "50%", height: "55vh", fontSize:'20px' }}
         >
-          <h1 style={{fontWeight:"700"}}>Sign In</h1>
+          <h1 style={{ fontWeight: "700" }}>Sign In</h1>
           <FormControl>
-            <form>
-              <FormLabel>Email</FormLabel>
+            <form >
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <BiMailSend style={{fontSize: "25px", marginRight: "5px" }} />
+                <span>Email</span>
+              </div>  
               <Input
                 type="email"
                 id="email"
@@ -91,7 +96,10 @@ const SignIn = () => {
                 onChange={registerHandler}
                 placeholder="Email"
               />
-              <FormLabel>Password</FormLabel>
+               <div style={{ display: "flex", alignItems: "center" ,padding:"10px 0 0 0" }}>
+                <RiLockPasswordLine style={{fontSize: "25px", marginRight: "5px",}} />
+                <span>Password</span>
+              </div>  
               <Input
                 type="password"
                 id="current-password"
@@ -120,17 +128,16 @@ const SignIn = () => {
               type="submit"
               colorScheme="blue"
               onClick={submitHandler}
-              style={{ fontSize: "15px",marginTop:'15px' }}
+              style={{ fontSize: "20px", marginTop: "15px" }}
             >
               Submit
             </Button>
           </div>
-          <p style={{ paddingTop: "5px" , fontSize:'1rem'}}>
+          <p style={{ paddingTop: "5px", fontSize: "1rem" }}>
             Don&apos;t have an account?
             <br /> Please
-            <span style={{fontWeight:'600'}}>
+            <span style={{ fontWeight: "600" }}>
               <Link to="/signup"> SignUp</Link>
-              
             </span>
           </p>
         </div>
