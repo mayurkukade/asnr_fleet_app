@@ -1,6 +1,6 @@
 import { Tabs, TabList, TabPanels, Tab, useDisclosure } from "@chakra-ui/react";
 // import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 import { IconButton } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";

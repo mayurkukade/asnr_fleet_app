@@ -8,7 +8,7 @@ const Vendor = () => {
     <>
       <div className="adminpage">
         <AdminNavbar />
-       
+
         <AdminTabs />
       </div>
     </>

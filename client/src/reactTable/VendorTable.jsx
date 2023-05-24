@@ -34,7 +34,7 @@ const VendorTable = () => {
         accessor: "id",
       },
       {
-        Header: "Vendor Name",
+        Header: "Vendor Name ",
         accessor: "name",
       },
       {
