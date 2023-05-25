@@ -4,15 +4,16 @@
   flex-wrap: wrap;
   width: 100vw;
   height: auto;
-  flex: 50%;
+  flex: 48%;
+
 
   .app_register_form {
     align-items: center;
     justify-content: center;
     width: 50%;
-    height: 100vh;
     display: flex;
     .app_register_form2 {
+      overflow-x: hidden;
       align-items: center;
       justify-content: center;
       flex-direction: row;
@@ -22,7 +23,10 @@
       -moz-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       width: 40vw;
-      height: 98vh;
+      min-height: 98vh;
+      span{
+        overflow-x: hidden;
+      }
       h4{
         text-align: center;
         padding: 15px;

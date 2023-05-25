@@ -9,7 +9,7 @@ import {
   Box,
   FormLabel,
 } from "@chakra-ui/react";
-import "./register.scss";
+import "./signin.scss";
 import { Link, useNavigate } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
 // import jwt_decode from "jwt-decode";
@@ -27,6 +27,8 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  // for Form Validation Hooks
+  const [error, setErrors] = useState({});
   const [login, { useLoading }] = useLoginMutation();
   // function handleCallbackResponse(response) {
   //   console.log("Ended JWT Id token:" + response.credential);
@@ -64,30 +66,54 @@ const SignIn = () => {
     console.log(registerValue);
     const { email, password } = registerValue;
 
-    try {
-      const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
+    if (validateForm()) {
+      try {
+        const res = await login({ email, password }).unwrap();
+        dispatch(setCredentials({ ...res }));
 
-      toast({ status: "success", position: "top", description: "Successful" });
-      navigate("/admin/fleet");
-    } catch (err) {
-      console.log(err.data.error.message);
-      toast({
-        status: "error",
-        position: "top",
-        description: err.data.error.message,
-      });
+        toast({
+          status: "success",
+          position: "top",
+          description: "Successful",
+        });
+        navigate("/admin/fleet");
+      } catch (err) {
+        console.log(err.data.error.message);
+        toast({
+          status: "error",
+          position: "top",
+          description: err.data.error.message,
+        });
+      }
     }
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    // Validation logic for each field
+    if (registerValue.email.trim() === "") {
+      newErrors.email = "Email is required";
+      isValid = false;
+    }
+
+    if (registerValue.password.trim() === "") {
+      newErrors.password = "Password is required";
+      isValid = false;
+    }
+
+    
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   return (
     <Box className="app_register">
       <HomeImag />
       <Box className="app_register_form ">
-        <Box
-          className="app_register_form2 "
-          style={{ width: "50%", height: "55%", fontSize: "20px" }}
-        >
+        <Box className="app_register_form2">
           <h1 style={{ fontWeight: "700" }}>Sign In</h1>
           <FormControl>
             <form>
@@ -104,6 +130,13 @@ const SignIn = () => {
                 onChange={registerHandler}
                 placeholder="Email"
               />
+              {
+                error.email && (
+                  <span style={{fontSize:'15px', color:'red'}}>
+                    {error.email}
+                  </span>
+                )
+              }
               <Flex paddingTop={"10px"}>
                 <Icon as={RiLockPasswordLine} fontSize="25px"></Icon>
                 <FormLabel>Password</FormLabel>
@@ -118,6 +151,13 @@ const SignIn = () => {
                 onChange={registerHandler}
                 placeholder="Password"
               />
+              {
+                error.password && (
+                  <span style={{fontSize:'15px', color:'red'}}>
+                    {error.password}
+                  </span>
+                )
+              }
             </form>
             {/* <h4>OR</h4>
          <Box className="googleButton">
