@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Input,SearchIcon } from "@chakra-ui/react";
+import { Input, SearchIcon } from "@chakra-ui/react";
 import Avtar from "./Avtar";
 const Navbar = () => {
-    const [searchData, setSeachData] = useState("");
+  const [searchData, setSeachData] = useState("");
   return (
     <>
-     <div className="nav">
+      <div className="nav">
         <div className="searchbar">
           <button>
             <Input
@@ -19,9 +19,10 @@ const Navbar = () => {
         </div>
         <Avtar />
       </div>
-      
-    </>
-  )
-}
 
-export default Navbar
+      <hr />
+    </>
+  );
+};
+
+export default Navbar;

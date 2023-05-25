@@ -9,7 +9,7 @@ import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
 import VendorManegment from "./reactTable/VendorManegment";
 
-import VendorTable from "./reactTable/VendorTable";
+// import VendorTable from "./reactTable/VendorTable";
 import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
 import AdminTabs from "./components/adminTabs/AdminTabs";
@@ -26,11 +26,9 @@ const App = () => {
         <Route element={<AppLayout />}>
           <Route path="/admin" element={<AdminTabs />}>
             <Route path="/admin/fleet" element={<FleetManegment />} />
-            <Route path="/admin/vendors" element={<VendorTable />} />
+            <Route path="/admin/vendors" element={<VendorModel />} />
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
-           
-
           </Route>
           <Route path="/vendors" element={<VendorTabs />}>
             <Route
