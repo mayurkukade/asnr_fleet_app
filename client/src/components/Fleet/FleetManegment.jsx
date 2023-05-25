@@ -1,9 +1,9 @@
-import { useVendorDetailsQuery } from "../../api/vendorSlice";
+// import { useVendorDetailsQuery } from "../../api/vendorSlice";
 
 const FleetManegment = () => {
-  const { data } = useVendorDetailsQuery();
+  // const { data } = useVendorDetailsQuery();
 
- console.log(data)
+//  console.log(data)
   return (
     <>
       <h1>Fleet Manegment</h1>

@@ -1,11 +1,4 @@
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, useDisclosure } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
@@ -39,8 +32,6 @@ const VendorTabs = () => {
           <Link to={"/vendors/tripmanegment"}>
             <Tab>Trip Manegment</Tab>
           </Link>
-
-          
 
           <Box
             display={"flex"}

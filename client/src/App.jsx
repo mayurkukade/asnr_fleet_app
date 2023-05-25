@@ -1,19 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import Register from "./pages/Register";
 import SignIn from "./pages/SignIn";
-import Admin from "./pages/Admin";
-import Reviews from "./components/Vendor/Reviews";
 
+import VendorTabs from "./components/Vendor/VendorTabs";
 import NotFound from "./pages/NotFound";
 import FleetManegment from "./components/Fleet/FleetManegment";
 import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
 import VendorManegment from "./reactTable/VendorManegment";
-import VendorDetails from "./components/Vendor/VendorDetails";
-import SearchPage from "./pages/SearchPage";
+
+
 import VendorTable from "./reactTable/VendorTable";
-import VendorPage from "./pages/VendorPage";
-import AddDriver from "./components/Vendor/AddDriver";
+
+import AppLayout from "./components/appLayout/AppLayout";
+import AdminTabs from "./components/adminTabs/AdminTabs";
 
 const App = () => {
   return (
@@ -23,22 +23,19 @@ const App = () => {
 
         <Route path="/" element={<SignIn />} />
 
-        <Route path="/admin" element={<Admin />}>
-          <Route path="/admin/:search" element={<SearchPage />} />
-          <Route path="/admin/user" element={<UserRoleManegment />} />
-          <Route path="/admin/reports" element={<Reports />} />
-          <Route path="/admin/vendors" element={<VendorTable />} />
-          <Route
-            path="/admin/vendors/vendordetails"
-            element={<VendorDetails />}
-          />
-          <Route path="/admin/fleet" element={<FleetManegment />} />
-        </Route>
-        <Route path="/vendors" element={<VendorPage />}>
+        <Route element={<AppLayout />}>
+          <Route path="/admin" element={<AdminTabs />}>
+            <Route path="/admin/fleet" element={<FleetManegment />} />
+            <Route path="/admin/vendors" element={<VendorTable />} />
+            <Route path="/admin/user" element={<UserRoleManegment />} />
+            <Route path="/admin/reports" element={<Reports />} />
+          </Route>
+          <Route path="/vendors" element={<VendorTabs/>}>
           <Route path="/vendors/tripmanegment" element={<VendorManegment />} />
-          <Route path="/vendors/reviews" element={<Reviews />} />
-          <Route path="/vendors/adddriver" element={<AddDriver />} />
+          </Route>
         </Route>
+
+      
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
