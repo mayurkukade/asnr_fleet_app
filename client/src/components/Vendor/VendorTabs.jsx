@@ -1,6 +1,6 @@
 import { Tabs, TabList, TabPanels, Tab, useDisclosure } from "@chakra-ui/react";
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link, Outlet } from "react-router-dom";
 import { IconButton } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
@@ -17,10 +17,10 @@ import {
 } from "@chakra-ui/react";
 import FormAddDriver from "./FormAddDriver";
 const VendorTabs = () => {
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   navigate("/vendors/tripmanegment");
-  // }, []);
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/vendors/tripmanegment");
+  }, []);
 
   const { onOpen, onClose, isOpen } = useDisclosure();
 

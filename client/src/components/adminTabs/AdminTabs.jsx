@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Tabs, TabList, TabPanels, Tab } from "@chakra-ui/react";
 import { Link, Outlet } from "react-router-dom";
 import "./admintabs.scss";

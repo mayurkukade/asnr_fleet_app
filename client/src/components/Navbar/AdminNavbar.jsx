@@ -2,7 +2,6 @@ import { SearchIcon } from "@chakra-ui/icons";
 
 import "./adminnavbar.scss";
 import { Input } from "@chakra-ui/react";
-import AdminTabs from "../adminTabs/AdminTabs";
 import { Link } from "react-router-dom";
 import {
   Table,

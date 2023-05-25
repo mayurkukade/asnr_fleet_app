@@ -1,5 +1,6 @@
-import vendorData from "../json/vendor.json";
-import { useTable, usePagination, useSortBy } from "react-table";
+
+import 'regenerator-runtime/runtime'
+import { useTable, usePagination, useSortBy,useGlobalFilter } from "react-table";
 import { useVendorDetailsQuery } from "../api/vendorSlice";
 import React, { useEffect, useState } from "react";
 import {
@@ -11,6 +12,8 @@ import {
   Td,
   TableContainer,
 } from "@chakra-ui/react";
+import SearchVendor from "../components/searchVendor/SearchVendor";
+
 
 const VendorTable = () => {
   const { data: v, error, isLoading } = useVendorDetailsQuery();
@@ -71,10 +74,13 @@ const VendorTable = () => {
     nextPage,
     previousPage,
     setPageSize,
-
+    preGlobalFilteredRows,
+    setGlobalFilter,
+state,
     state: { pageIndex, pageSize },
   } = useTable(
     { columns, data, initialState: { pageIndex: 0 } },
+    useGlobalFilter,
     useSortBy,
     usePagination
   );
@@ -85,7 +91,14 @@ const VendorTable = () => {
       ) : isLoading ? (
         <>Loading...</>
       ) : data ? (
+        <>
+     <SearchVendor
+      preGlobalFilteredRows={preGlobalFilteredRows}
+      setGlobalFilter={setGlobalFilter}
+      globalFilter={state.SearchVendor}
+     />
         <TableContainer>
+          
           <Table {...getTableProps()}>
             <Thead>
               {headerGroups.map((headerGroup, i) => (
@@ -172,6 +185,7 @@ const VendorTable = () => {
             </select>
           </div>
         </TableContainer>
+        </>
       ) : null}
     </>
   );
