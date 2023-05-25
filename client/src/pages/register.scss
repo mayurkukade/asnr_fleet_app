@@ -12,6 +12,7 @@
     justify-content: center;
     width: 50%;
     display: flex;
+    // border: 2px solid yellow;
     .app_register_form2 {
       overflow-x: hidden;
       align-items: center;
@@ -22,7 +23,7 @@
       -webkit-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       -moz-box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
       box-shadow: 11px 8px 24px 0px rgba(66, 68, 90, 1);
-      width: 40vw;
+      width: 50vw;
       min-height: 98vh;
       span{
         overflow-x: hidden;
