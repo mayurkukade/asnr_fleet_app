@@ -199,6 +199,9 @@ const Register = () => {
               <Select
                 placeholder="Select option"
                 style={{ border: "1px solid black" }}
+                name="role"
+                value={registerValue.role}
+                onChange={registerHandler}
               >
                 <option value="option1">User</option>
                 <option value="option2">Vendor</option>
