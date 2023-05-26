@@ -16,6 +16,7 @@
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import vendorJson from "../../json/vendor.json";
 import Avtar from "./Avtar";
+import { Box, Text } from "@chakra-ui/react";
 
 const VendorNavbar = () => {
   // const { data: v } = useVendorDetailsQuery();
@@ -123,13 +124,13 @@ const VendorNavbar = () => {
         
           
         </>
-      )} */}
-       <div className="nav">
-            <div className="searchbar">
-              <h1>ASNR Fleet App</h1>
-            </div>
+      )} */}    
+       <Box className="nav">
+            <Box className="searchbar">
+              <Text fontSize='2xl' fontWeight="medium">ASNR Fleet App</Text >
+            </Box>
             <Avtar />
-          </div>
+          </Box>
 
           <hr />
         

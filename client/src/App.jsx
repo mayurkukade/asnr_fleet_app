@@ -36,8 +36,8 @@ const App = () => {
               element={<VendorManegment />}
             />
           </Route>
-          <Route path="/admin/Vendormodel" element={<VendorModel />} />
-          <Route path="/admin/DriverModel" element={<DriverModel />} />
+          <Route path="/admin/Vendormodel"  element={<VendorModel />} />
+          <Route path="/admin/DriverModel"  element={<DriverModel />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
