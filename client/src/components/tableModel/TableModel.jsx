@@ -106,7 +106,7 @@ const TableModel = ({
     state,
     state: { pageIndex, pageSize },
   } = useTable(
-    { columns, data, initialState: { pageIndex: 0 , pageSize:5} },
+    { columns, data, initialState: { pageIndex: 0, pageSize: 5 } },
     useGlobalFilter,
     useSortBy,
     usePagination
@@ -119,7 +119,7 @@ const TableModel = ({
         <>Loading...</>
       ) : data ? (
         <>
-          <TableContainer overflowX={"hidden"}>
+          <TableContainer>
             <SearchVendor
               preGlobalFilteredRows={preGlobalFilteredRows}
               setGlobalFilter={setGlobalFilter}
@@ -139,18 +139,17 @@ const TableModel = ({
                         {column.render("Header")}
                         <Text>
                           <HStack>
-                            {column.isSorted ? (
-                              column.isSortedDesc ? (
+                            {/* {column.isSorted ? ( */}
+                            <Flex>
+                              {column.isSortedDesc ? (
                                 <Icon as={AiOutlineSortAscending} boxSize={6} />
                               ) : (
                                 <Icon
                                   as={AiOutlineSortDescending}
                                   boxSize={6}
                                 />
-                              )
-                            ) : (
-                              ""
-                            )}
+                              )}
+                            </Flex>
                           </HStack>
                         </Text>
                       </Th>
