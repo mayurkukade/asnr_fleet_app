@@ -126,6 +126,7 @@ const TableModel = ({
                   <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
                       <Th
+                        padding='18px'
                         key={i}
                         {...column.getHeaderProps(column.getSortByToggleProps)}
                       >
