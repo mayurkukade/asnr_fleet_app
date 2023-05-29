@@ -106,7 +106,7 @@ const TableModel = ({
     state,
     state: { pageIndex, pageSize },
   } = useTable(
-    { columns, data, initialState: { pageIndex: 0 } },
+    { columns, data, initialState: { pageIndex: 0 , pageSize:5} },
     useGlobalFilter,
     useSortBy,
     usePagination
@@ -280,6 +280,7 @@ const TableModel = ({
                   | Go to page :
                 </Text>{" "}
                 <Input
+                  border={"1px solid black"}
                   h={"35px"}
                   type="number"
                   defaultValue={pageIndex + 1}
@@ -292,6 +293,7 @@ const TableModel = ({
                   width="50px"
                 />
                 <Select
+                  border={"1px solid black"}
                   h={"35px"}
                   placeholder="Select option"
                   value={pageSize}
