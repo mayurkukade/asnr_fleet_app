@@ -121,7 +121,7 @@ const TableModel = ({
               globalFilter={state.SearchVendor}
             />
             <Table {...getTableProps()}>
-              <Thead>
+              <Thead bgColor={"#EDF2F7"} padding='20px 0px' >
                 {headerGroups.map((headerGroup, i) => (
                   <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
@@ -162,7 +162,7 @@ const TableModel = ({
                 })}
               </Tbody>
             </Table>
-            <div className="pagination">
+            <Box className="pagination">
               <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
                 {"<<"}
               </button>{" "}
@@ -213,7 +213,7 @@ const TableModel = ({
                   </option>
                 ))}
               </select>
-            </div>
+            </Box>
           </TableContainer>
         </>
       ) : null}
