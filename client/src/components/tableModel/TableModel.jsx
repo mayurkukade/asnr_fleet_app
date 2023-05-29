@@ -29,7 +29,7 @@ import SearchVendor from "../searchVendor/SearchVendor";
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
-} from "react-icons/Ai";
+} from "react-icons/ai";
 
 const TableModel = ({
   data: V,

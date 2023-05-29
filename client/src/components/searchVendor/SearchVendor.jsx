@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Input, Box, Icon,InputRightElement,InputGroup, useStyleConfig,Flex } from "@chakra-ui/react";
+import { Input, Box, Icon,InputRightElement,InputGroup, useStyleConfig } from "@chakra-ui/react";
 import { useState } from "react";
 import { useAsyncDebounce } from "react-table";
-import { BiSearchAlt } from 'react-icons/Bi';
+import { BiSearchAlt } from 'react-icons/bi';
 
 const SearchVendor = ({
   preGlobalFilteredRows,
