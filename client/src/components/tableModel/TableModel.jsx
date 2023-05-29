@@ -24,6 +24,11 @@ import {
   Flex,
   flexbox,
   border,
+  Select,
+  Button,
+  Text,
+  Input,
+  HStack,
 } from "@chakra-ui/react";
 import SearchVendor from "../searchVendor/SearchVendor";
 import {
@@ -109,39 +114,45 @@ const TableModel = ({
   return (
     <>
       {error ? (
-        <>Oh no, there was an error</>
+        <>Something Went Wrong Try After Sometime</>
       ) : isLoading ? (
         <>Loading...</>
       ) : data ? (
         <>
-          <TableContainer>
+          <TableContainer overflowX={"hidden"}>
             <SearchVendor
               preGlobalFilteredRows={preGlobalFilteredRows}
               setGlobalFilter={setGlobalFilter}
               globalFilter={state.SearchVendor}
             />
             <Table {...getTableProps()}>
-              <Thead bgColor={"#EDF2F7"} padding='20px 0px' >
+              <Thead bgColor={"#95B6D8"} padding="20px 0px">
                 {headerGroups.map((headerGroup, i) => (
                   <Tr key={i} {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((column) => (
                       <Th
-                        padding='18px'
+                        align="center"
+                        padding="18px"
                         key={i}
                         {...column.getHeaderProps(column.getSortByToggleProps)}
                       >
                         {column.render("Header")}
-                        <span>
-                          {column.isSorted ? (
-                            column.isSortedDesc ? (
-                              <Icon as={AiOutlineSortAscending} boxSize={6} />
+                        <Text>
+                          <HStack>
+                            {column.isSorted ? (
+                              column.isSortedDesc ? (
+                                <Icon as={AiOutlineSortAscending} boxSize={6} />
+                              ) : (
+                                <Icon
+                                  as={AiOutlineSortDescending}
+                                  boxSize={6}
+                                />
+                              )
                             ) : (
-                              <Icon as={AiOutlineSortDescending} boxSize={6} />
-                            )
-                          ) : (
-                            ""
-                          )}
-                        </span>
+                              ""
+                            )}
+                          </HStack>
+                        </Text>
                       </Th>
                     ))}
                   </Tr>
@@ -151,7 +162,11 @@ const TableModel = ({
                 {page.map((row, i) => {
                   prepareRow(row);
                   return (
-                    <Tr key={i} {...row.getRowProps()}>
+                    <Tr
+                      key={i}
+                      {...row.getRowProps()}
+                      _hover={{ bg: "#EDF2F7" }}
+                    >
                       {row.cells.map((cell) => (
                         <Td key={i} {...cell.getCellProps()}>
                           {" "}
@@ -163,34 +178,109 @@ const TableModel = ({
                 })}
               </Tbody>
             </Table>
-            <Box className="pagination">
-              <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                {"<<"}
-              </button>{" "}
-              <button
-                onClick={() => previousPage()}
-                disabled={!canPreviousPage}
-              >
-                {"<"}
-              </button>{" "}
-              <button onClick={() => nextPage()} disabled={!canNextPage}>
-                {">"}
-              </button>{" "}
-              <button
-                onClick={() => gotoPage(pageCount - 1)}
-                disabled={!canNextPage}
-              >
-                {">>"}
-              </button>{" "}
-              <span>
-                Page{" "}
-                <strong>
-                  {pageIndex + 1} of {pageOptions.length}
-                </strong>{" "}
-              </span>
-              <span>
-                | Go to page:{" "}
-                <input
+            {/* <Box className="pagination" padding={"15px"}>
+              <Flex >
+                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+                  {"<<"}
+                </button>{" "}
+                <button
+                  onClick={() => previousPage()}
+                  disabled={!canPreviousPage}
+                >
+                  {"<"}
+                </button>{" "}
+                <span>
+                  Page{" "}
+                  <strong>
+                    {pageIndex + 1} of {pageOptions.length}
+                  </strong>{" "}
+                </span>
+                <button onClick={() => nextPage()} disabled={!canNextPage}>
+                  {">"}
+                </button>{" "}
+                <button
+                  onClick={() => gotoPage(pageCount - 1)}
+                  disabled={!canNextPage}
+                >
+                  {">>"}
+                </button>{" "}
+                <span>
+                  | Go to page : {" "}
+                  <input
+                    type="number"
+                    defaultValue={pageIndex + 1}
+                    onChange={(e) => {
+                      const page = e.target.value
+                        ? Number(e.target.value) - 1
+                        : 0;
+                      gotoPage(page);
+                    }}
+                    style={{ width: "100px" }}
+                  />
+                </span>{" "}
+                <Select
+                  placeholder="Select option"
+                  value={pageSize}
+                  onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                  }}
+                  width={'200px'}
+                >
+                  {[5, 10, 15, 20, 25].map((pageSize) => (
+                    <option key={pageSize} value={pageSize}>
+                      Show {pageSize}
+                    </option>
+                  ))}
+                </Select>
+              </Flex>
+            </Box> */}
+
+            <Box className="pagination" padding="15px" justifyItems="center">
+              <Flex gap="10px">
+                <Button
+                  h={"35px"}
+                  _hover={{ bg: "#1778f2" }}
+                  onClick={() => gotoPage(0)}
+                  disabled={!canPreviousPage}
+                >
+                  First Page
+                </Button>{" "}
+                <Button
+                  h={"35px"}
+                  _hover={{ bg: "#1778f2" }}
+                  onClick={() => previousPage()}
+                  disabled={!canPreviousPage}
+                >
+                  Previous Page
+                </Button>{" "}
+                <Text alignItems="center" fontSize="18px" pt={"2px"}>
+                  Page{" "}
+                  <strong>
+                    {pageIndex + 1} of {pageOptions.length}
+                  </strong>{" "}
+                </Text>
+                <Button
+                  h={"35px"}
+                  _hover={{ bg: "#1778f2" }}
+                  onClick={() => nextPage()}
+                  disabled={!canNextPage}
+                >
+                  {" "}
+                  Next Page
+                </Button>{" "}
+                <Button
+                  h={"35px"}
+                  _hover={{ bg: "#1778f2" }}
+                  onClick={() => gotoPage(pageCount - 1)}
+                  disabled={!canNextPage}
+                >
+                  Last Page
+                </Button>{" "}
+                <Text fontSize="18px" pt={"2px"}>
+                  | Go to page :
+                </Text>{" "}
+                <Input
+                  h={"35px"}
                   type="number"
                   defaultValue={pageIndex + 1}
                   onChange={(e) => {
@@ -199,21 +289,24 @@ const TableModel = ({
                       : 0;
                     gotoPage(page);
                   }}
-                  style={{ width: "100px" }}
+                  width="50px"
                 />
-              </span>{" "}
-              <select
-                value={pageSize}
-                onChange={(e) => {
-                  setPageSize(Number(e.target.value));
-                }}
-              >
-                {[5, 10, 15, 20, 25].map((pageSize) => (
-                  <option key={pageSize} value={pageSize}>
-                    Show {pageSize}
-                  </option>
-                ))}
-              </select>
+                <Select
+                  h={"35px"}
+                  placeholder="Select option"
+                  value={pageSize}
+                  onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                  }}
+                  width="110px"
+                >
+                  {[5, 10, 15, 20, 25].map((pageSize) => (
+                    <option key={pageSize} value={pageSize}>
+                      Show {pageSize}
+                    </option>
+                  ))}
+                </Select>
+              </Flex>
             </Box>
           </TableContainer>
         </>
