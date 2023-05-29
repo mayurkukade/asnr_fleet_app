@@ -35,7 +35,10 @@ import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
 } from "react-icons/Ai";
-
+import {
+  BiLastPage,
+  BiFirstPage
+} from "react-icons/Bi";
 const TableModel = ({
   data: V,
   columns,
@@ -250,6 +253,7 @@ const TableModel = ({
                   onClick={() => previousPage()}
                   disabled={!canPreviousPage}
                 >
+                  <BiFirstPage fontSize={'20px'}/>
                   Previous Page
                 </Button>{" "}
                 <Text alignItems="center" fontSize="18px" pt={"2px"}>
@@ -266,6 +270,7 @@ const TableModel = ({
                 >
                   {" "}
                   Next Page
+                  <BiLastPage fontSize={'20px'}/>
                 </Button>{" "}
                 <Button
                   h={"35px"}
