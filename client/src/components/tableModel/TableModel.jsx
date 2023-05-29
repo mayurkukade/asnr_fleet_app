@@ -106,7 +106,7 @@ const TableModel = ({
     state,
     state: { pageIndex, pageSize },
   } = useTable(
-    { columns, data, initialState: { pageIndex: 0 } },
+    { columns, data, initialState: { pageIndex: 0, pageSize: 5 } },
     useGlobalFilter,
     useSortBy,
     usePagination
@@ -119,7 +119,7 @@ const TableModel = ({
         <>Loading...</>
       ) : data ? (
         <>
-          <TableContainer overflowX={"hidden"}>
+          <TableContainer>
             <SearchVendor
               preGlobalFilteredRows={preGlobalFilteredRows}
               setGlobalFilter={setGlobalFilter}
@@ -139,18 +139,17 @@ const TableModel = ({
                         {column.render("Header")}
                         <Text>
                           <HStack>
-                            {column.isSorted ? (
-                              column.isSortedDesc ? (
+                            {/* {column.isSorted ? ( */}
+                            <Flex>
+                              {column.isSortedDesc ? (
                                 <Icon as={AiOutlineSortAscending} boxSize={6} />
                               ) : (
                                 <Icon
                                   as={AiOutlineSortDescending}
                                   boxSize={6}
                                 />
-                              )
-                            ) : (
-                              ""
-                            )}
+                              )}
+                            </Flex>
                           </HStack>
                         </Text>
                       </Th>
@@ -280,6 +279,7 @@ const TableModel = ({
                   | Go to page :
                 </Text>{" "}
                 <Input
+                  border={"1px solid black"}
                   h={"35px"}
                   type="number"
                   defaultValue={pageIndex + 1}
@@ -292,6 +292,7 @@ const TableModel = ({
                   width="50px"
                 />
                 <Select
+                  border={"1px solid black"}
                   h={"35px"}
                   placeholder="Select option"
                   value={pageSize}
