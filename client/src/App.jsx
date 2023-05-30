@@ -7,13 +7,15 @@ import NotFound from "./pages/NotFound";
 import FleetManegment from "./components/Fleet/FleetManegment";
 import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
-import VendorManegment from "./reactTable/VendorManegment";
+
 
 // import VendorTable from "./reactTable/VendorTable";
 import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
 import AdminTabs from "./components/adminTabs/AdminTabs";
 import VendorModel from "./components/tableModel/VendorModel";
+import VendorPageDetails from "./pages/VendorPageDetails";
+import VendorNavBar from "./components/Navbar/VendorNavBar";
 
 const App = () => {
   return (
@@ -27,19 +29,25 @@ const App = () => {
           <Route path="/admin" element={<AdminTabs />}>
             <Route path="/admin/fleet" element={<FleetManegment />} />
             <Route path="/admin/vendors" element={<VendorModel />} />
+
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
           </Route>
-          <Route path="/vendors" element={<VendorTabs />}>
+          {/* <Route path="/vendors" element={<VendorTabs />}>
             <Route
               path="/vendors/tripmanegment"
               element={<VendorManegment />}
             />
-          </Route>
-          <Route path="/admin/Vendormodel"  element={<VendorModel />} />
-          <Route path="/admin/DriverModel"  element={<DriverModel />} />
+          </Route> */}
         </Route>
-
+        <Route element={<VendorNavBar />}>
+          <Route path="/vendors" element={<VendorTabs/>}>
+          <Route path="/vendors/:id" element={<VendorPageDetails />} />
+          </Route>
+        
+        </Route>
+        {/* <Route path="/admin/vendors/:id" element={<VendorPageDetails />} /> */}
+        <Route path="/admin/DriverModel" element={<DriverModel />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

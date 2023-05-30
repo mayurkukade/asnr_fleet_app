@@ -130,6 +130,7 @@ state,
                       <Td key={i} {...cell.getCellProps()}>
                         {" "}
                         {cell.render("Cell")}{" "}
+                      
                       </Td>
                     ))}
                   </Tr>

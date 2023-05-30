@@ -9,11 +9,18 @@ export const venderApiSlice = apiSlice.injectEndpoints({
                
             })
         }),
+        VendorId:builder.query({
+            query:(id)=>({
+                url:`/driver/id?id=${id}`
+            })
+        })
         
     })
     
 })
 
 export const {
-    useVendorDetailsQuery
+    useVendorDetailsQuery,
+    useVendorIdQuery
+    
 } = venderApiSlice
