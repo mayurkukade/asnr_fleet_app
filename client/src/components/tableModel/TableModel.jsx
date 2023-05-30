@@ -35,7 +35,14 @@ import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
 } from "react-icons/Ai";
-
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight
+} from "react-icons/Md";
+import {
+  BiFirstPage,
+  BiLastPage
+} from "react-icons/Bi"
 const TableModel = ({
   data: V,
   columns,
