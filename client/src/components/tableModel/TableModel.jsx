@@ -44,6 +44,13 @@ const TableModel = ({
   tableData,
 }) => {
   const data = React.useMemo(() => FetchData, [FetchData]);
+  var linkString
+if(tableData == 'vendors'){
+  console.log(tableData)
+  linkString = '/admin/vendors'
+}else{
+  linkString = '#'
+}
 
   const {
     getTableProps,
@@ -129,7 +136,7 @@ const TableModel = ({
                       {row.cells.map((cell) => (
                         <Td key={i} {...cell.getCellProps()}>
                           {" "}
-                          <Link to={`/admin/vendors/${cell.row.values.id}`}>
+                          <Link to={`${linkString}/${cell.row.values.id}`}>
                             {cell.render("Cell")}
                           </Link>
                         </Td>
@@ -140,62 +147,7 @@ const TableModel = ({
                 })}
               </Tbody>
             </Table>
-            {/* <Box className="pagination" padding={"15px"}>
-              <Flex >
-                <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-                  {"<<"}
-                </button>{" "}
-                <button
-                  onClick={() => previousPage()}
-                  disabled={!canPreviousPage}
-                >
-                  {"<"}
-                </button>{" "}
-                <span>
-                  Page{" "}
-                  <strong>
-                    {pageIndex + 1} of {pageOptions.length}
-                  </strong>{" "}
-                </span>
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                  {">"}
-                </button>{" "}
-                <button
-                  onClick={() => gotoPage(pageCount - 1)}
-                  disabled={!canNextPage}
-                >
-                  {">>"}
-                </button>{" "}
-                <span>
-                  | Go to page : {" "}
-                  <input
-                    type="number"
-                    defaultValue={pageIndex + 1}
-                    onChange={(e) => {
-                      const page = e.target.value
-                        ? Number(e.target.value) - 1
-                        : 0;
-                      gotoPage(page);
-                    }}
-                    style={{ width: "100px" }}
-                  />
-                </span>{" "}
-                <Select
-                  placeholder="Select option"
-                  value={pageSize}
-                  onChange={(e) => {
-                    setPageSize(Number(e.target.value));
-                  }}
-                  width={'200px'}
-                >
-                  {[5, 10, 15, 20, 25].map((pageSize) => (
-                    <option key={pageSize} value={pageSize}>
-                      Show {pageSize}
-                    </option>
-                  ))}
-                </Select>
-              </Flex>
-            </Box> */}
+          
 
             <Box className="pagination" padding="15px" justifyItems="center">
               <Flex gap="10px">
