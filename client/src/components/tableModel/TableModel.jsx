@@ -42,7 +42,7 @@ import {
 import {
   BiFirstPage,
   BiLastPage
-} from "react-icons/Bi"
+} from "react-icons/bi"
 const TableModel = ({
   data: V,
   columns,
