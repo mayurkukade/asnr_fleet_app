@@ -47,7 +47,7 @@ const TableModel = ({
   var linkString
 if(tableData == 'vendors'){
   console.log(tableData)
-  linkString = '/admin/vendors'
+  linkString = '/vendors'
 }else{
   linkString = '#'
 }
