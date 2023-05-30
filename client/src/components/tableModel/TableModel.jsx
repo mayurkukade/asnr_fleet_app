@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-
+// `/admin/vendors/${cell.row.values.id}`
 import "regenerator-runtime/runtime";
 import {
   useTable,
@@ -11,7 +11,7 @@ import {
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   Thead,
@@ -23,7 +23,6 @@ import {
   Icon,
   Box,
   Flex,
- 
   Select,
   Button,
   Text,
@@ -42,51 +41,9 @@ const TableModel = ({
   FetchData,
   error,
   isLoading,
+  tableData,
 }) => {
-  //   const { data: v, error, isLoading } = useVendorDetailsQuery();
-  //   const [vendorFetchData, setVendorFetchData] = useState([]);
-  //   useEffect(() => {
-  //     const getData = setTimeout(() => {
-  //       setVendorFetchData(v.results);
-  //     }, 100);
-
-  //     return () => clearTimeout(getData);
-  //   }, [v]);
-
-  //   console.log(vendorFetchData);
-
   const data = React.useMemo(() => FetchData, [FetchData]);
-  console.log(FetchData)
-
-  //   const columns = React.useMemo(
-  //     () => [
-  //       {
-  //         Header: "ID",
-  //         accessor: "id",
-  //       },
-  //       {
-  //         Header: "Vendor Name ",
-  //         accessor: "name",
-  //       },
-  //       {
-  //         Header: "Location",
-  //         accessor: "location",
-  //       },
-  //       {
-  //         Header: "Phone",
-  //         accessor: "phone_no",
-  //       },
-  //       {
-  //         Header: "Total Trips",
-  //         accessor: "total_trips",
-  //       },
-  //       {
-  //         Header: "Accept",
-  //         accessor: "status.label",
-  //       },
-  //     ],
-  //     []
-  //   );
 
   const {
     getTableProps,
@@ -113,6 +70,7 @@ const TableModel = ({
     useSortBy,
     usePagination
   );
+
   return (
     <>
       {error ? (
@@ -141,7 +99,7 @@ const TableModel = ({
                         {column.render("Header")}
                         <Text>
                           <HStack>
-                            {/* {column.isSorted ? ( */}
+                          
                             <Flex>
                               {column.isSortedDesc ? (
                                 <Icon as={AiOutlineSortAscending} boxSize={6} />
@@ -167,25 +125,16 @@ const TableModel = ({
                       key={i}
                       {...row.getRowProps()}
                       _hover={{ bg: "#EDF2F7" }}
-                     
                     >
                       {row.cells.map((cell) => (
-                       
                         <Td key={i} {...cell.getCellProps()}>
-                        
                           {" "}
-                        <Link to={`/admin/vendors/${cell.row.values.id}`}>{cell.render("Cell")}</Link>  
+                          <Link to={`/admin/vendors/${cell.row.values.id}`}>
+                            {cell.render("Cell")}
+                          </Link>
                         </Td>
                       ))}
-                      {/* {
-                        row.cells.map((cell)=>{
-                          console.log(cell.row.values.id)
-                          return(
-                            <>
-                            </>
-                          )
-                        })
-                      } */}
+                    
                     </Tr>
                   );
                 })}

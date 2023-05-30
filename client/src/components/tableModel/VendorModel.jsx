@@ -1,11 +1,10 @@
-import React,{ useEffect,useState } from 'react';
-import TableModel from './TableModel'
+import React, { useEffect, useState } from "react";
+import TableModel from "./TableModel";
 import { useVendorDetailsQuery } from "../../api/vendorSlice";
 
 const VendorModel = () => {
   const { data: v, error, isLoading } = useVendorDetailsQuery();
   const [vendorFetchData, setVendorFetchData] = useState([]);
-
 
   const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
   const columns = React.useMemo(
@@ -36,8 +35,6 @@ const VendorModel = () => {
       },
     ],
     []
-
-    
   );
   useEffect(() => {
     const getData = setTimeout(() => {
@@ -46,11 +43,20 @@ const VendorModel = () => {
 
     return () => clearTimeout(getData);
   }, [v]);
+
   return (
     <>
-     <TableModel data ={data} columns={columns} FetchData={vendorFetchData} error={error} isLoading={isLoading} />
+      <TableModel
+        data={data}
+        columns={columns}
+        FetchData={vendorFetchData}
+        error={error}
+        isLoading={isLoading}
+        tableData='vendors'
+        
+      />
     </>
-  )
-}
+  );
+};
 
-export default VendorModel
+export default VendorModel;
