@@ -18,8 +18,8 @@ import { setCredentials } from "../api/authSlice";
 import { useLoginMutation } from "../api/usersApiSlice";
 import { useToast } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
-import { BiMailSend } from "react-icons/Bi";
-import { RiLockPasswordLine } from "react-icons/Ri";
+import { BiMailSend } from "react-icons/bi";
+import { RiLockPasswordLine } from "react-icons/ri";
 const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

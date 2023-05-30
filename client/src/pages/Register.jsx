@@ -4,8 +4,8 @@ import { FormControl, FormLabel, Input, Select } from "@chakra-ui/react";
 import "./register.scss";
 import { Link } from "react-router-dom";
 import HomeImag from "../components/homeimage/HomeImg";
-import { BiMailSend, BiUserPin } from "react-icons/Bi";
-import { RiLockPasswordLine } from "react-icons/Ri";
+import { BiMailSend, BiUserPin } from "react-icons/bi";
+import { RiLockPasswordLine } from "react-icons/ri";
 import { IoAccessibilityOutline } from "react-icons/io5";
 
 const Register = () => {
