@@ -14,6 +14,7 @@ import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
 import AdminTabs from "./components/adminTabs/AdminTabs";
 import VendorModel from "./components/tableModel/VendorModel";
+import VendorPageDetails from "./pages/VendorPageDetails";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/admin" element={<AdminTabs />}>
             <Route path="/admin/fleet" element={<FleetManegment />} />
             <Route path="/admin/vendors" element={<VendorModel />} />
+            <Route path="/admin/vendors/:id" element={<VendorPageDetails />} />
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
           </Route>
@@ -36,10 +38,10 @@ const App = () => {
               element={<VendorManegment />}
             />
           </Route>
-          <Route path="/admin/Vendormodel"  element={<VendorModel />} />
-          <Route path="/admin/DriverModel"  element={<DriverModel />} />
+          <Route path="/admin/Vendormodel" element={<VendorModel />} />
+          <Route path="/admin/DriverModel" element={<DriverModel />} />
         </Route>
-
+        <Route path="vendors/:id" element={<VendorPageDetails />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

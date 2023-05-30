@@ -10,6 +10,7 @@ import {
 } from "react-table";
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import React from "react";
 import {
   Table,
@@ -22,8 +23,7 @@ import {
   Icon,
   Box,
   Flex,
-  flexbox,
-  border,
+ 
   Select,
   Button,
   Text,
@@ -39,7 +39,7 @@ import {
 const TableModel = ({
   data: V,
   columns,
-  vendorFetchData,
+  FetchData,
   error,
   isLoading,
 }) => {
@@ -55,7 +55,8 @@ const TableModel = ({
 
   //   console.log(vendorFetchData);
 
-  const data = React.useMemo(() => vendorFetchData, [vendorFetchData]);
+  const data = React.useMemo(() => FetchData, [FetchData]);
+  console.log(FetchData)
 
   //   const columns = React.useMemo(
   //     () => [
@@ -93,6 +94,7 @@ const TableModel = ({
     headerGroups,
     page,
     prepareRow,
+
     canPreviousPage,
     canNextPage,
     pageOptions,
@@ -165,13 +167,25 @@ const TableModel = ({
                       key={i}
                       {...row.getRowProps()}
                       _hover={{ bg: "#EDF2F7" }}
+                     
                     >
                       {row.cells.map((cell) => (
+                       
                         <Td key={i} {...cell.getCellProps()}>
+                        
                           {" "}
-                          {cell.render("Cell")}{" "}
+                        <Link to={`/admin/vendors/${cell.row.values.id}`}>{cell.render("Cell")}</Link>  
                         </Td>
                       ))}
+                      {/* {
+                        row.cells.map((cell)=>{
+                          console.log(cell.row.values.id)
+                          return(
+                            <>
+                            </>
+                          )
+                        })
+                      } */}
                     </Tr>
                   );
                 })}

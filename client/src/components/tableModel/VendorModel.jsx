@@ -48,7 +48,7 @@ const VendorModel = () => {
   }, [v]);
   return (
     <>
-     <TableModel data ={data} columns={columns} vendorFetchData={vendorFetchData} error={error} isLoading={isLoading} />
+     <TableModel data ={data} columns={columns} FetchData={vendorFetchData} error={error} isLoading={isLoading} />
     </>
   )
 }
