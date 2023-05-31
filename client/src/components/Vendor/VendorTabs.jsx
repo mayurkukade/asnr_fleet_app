@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Tabs, TabList, TabPanels, Tab, useDisclosure } from "@chakra-ui/react";
 
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import { IconButton } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import React from "react";
@@ -23,52 +23,104 @@ const VendorTabs = () => {
   // }, []);
 
   const { onOpen, onClose, isOpen } = useDisclosure();
-
+  const username = localStorage.getItem("userInfo");
   const firstFieldRef = React.useRef(null);
   return (
     <>
       <Tabs isFitted>
-        <TabList d="flex">
+        <TabList
+          padding="5px"
+          spacing={4}
+          style={{ display: "flex", gap: "100px", justifyContent: "center" }}
+        >
           <>
-            <Tab>Trip Manegment</Tab>
+            {/* <Link to={"/admin/fleet"} >
+              <Tab w={"10%"} fontSize={"20px"}>
+                Trip Management
+              </Tab>
+            </Link> */}
+            <Tab w={"10%"} fontSize={"20px"}>
+              <Link to={"/admin/TripMangement"}>Trip Management</Link>
+            </Tab>
+            <Tab w={"10%"} fontSize={"20px"}>
+              <Link to={"/vendors/PaymentMangement"}>Payment Management</Link>
+            </Tab>
           </>
 
           <Box
             display={"flex"}
             alignItems={"center"}
-            marginLeft={"25rem"}
             color="green"
+            fontSize={"20px"}
+          >
+            Reviewer
+            <Popover
+              // isOpen={isOpen}
+              // initialFocusRef={firstFieldRef}
+              // onOpen={onOpen}
+              // onClose={onClose}
+              placement="bottom"
+              // closeOnBlur={false}
+            >
+              <PopoverTrigger>
+                <IconButton
+                  color={"green"}
+                  marginTop={"5px"}
+                  marginLeft={"5px"}
+                  size="sm"
+                  icon={<EditIcon />}
+                />
+              </PopoverTrigger>
+              <PopoverContent p={5}>
+                <FocusLock returnFocus persistentFocus={false}>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <FormAddDriver
+                    firstFieldRef={firstFieldRef}
+                    onCancel={onClose}
+                  />
+                </FocusLock>
+              </PopoverContent>
+            </Popover>
+          </Box>
+
+          <Box
+            display={"flex"}
+            alignItems={"center"}
+            marginRight={"50px"}
+            color="green"
+            fontSize={"20px"}
           >
             Add Driver Details
-          </Box>
-          <Popover
-            isOpen={isOpen}
-            initialFocusRef={firstFieldRef}
-            onOpen={onOpen}
-            onClose={onClose}
-            placement="bottom"
-            closeOnBlur={false}
-          >
-            <PopoverTrigger>
-              <IconButton
-                color={"green"}
-                marginTop={"5px"}
-                marginLeft={"5px"}
-                size="sm"
-                icon={<EditIcon />}
-              />
-            </PopoverTrigger>
-            <PopoverContent p={5}>
-              <FocusLock returnFocus persistentFocus={false}>
-                <PopoverArrow />
-                <PopoverCloseButton />
-                <FormAddDriver
-                  firstFieldRef={firstFieldRef}
-                  onCancel={onClose}
+            <Popover
+              isOpen={isOpen}
+              initialFocusRef={firstFieldRef}
+              onOpen={onOpen}
+              onClose={onClose}
+              placement="bottom"
+              closeOnBlur={false}
+            >
+              <PopoverTrigger>
+                <IconButton
+                  color={"green"}
+                  marginTop={"5px"}
+                  marginLeft={"5px"}
+                  size="sm"
+                  icon={<EditIcon />}
                 />
-              </FocusLock>
-            </PopoverContent>
-          </Popover>
+              </PopoverTrigger>
+              <PopoverContent p={5}>
+                <FocusLock returnFocus persistentFocus={false}>
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <FormAddDriver
+                    firstFieldRef={firstFieldRef}
+                    onCancel={onClose}
+                  />
+                </FocusLock>
+              </PopoverContent>
+            </Popover>
+          </Box>
         </TabList>
 
         <TabPanels>

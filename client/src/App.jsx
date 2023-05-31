@@ -8,7 +8,6 @@ import FleetManegment from "./components/Fleet/FleetManegment";
 import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
 
-
 // import VendorTable from "./reactTable/VendorTable";
 import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
@@ -16,6 +15,7 @@ import AdminTabs from "./components/adminTabs/AdminTabs";
 import VendorModel from "./components/tableModel/VendorModel";
 import VendorPageDetails from "./pages/VendorPageDetails";
 import VendorNavBar from "./components/Navbar/VendorNavBar";
+import PaymentManagement from "./components/tableModel/PaymentManagement";
 
 const App = () => {
   return (
@@ -41,13 +41,17 @@ const App = () => {
           </Route> */}
         </Route>
         <Route element={<VendorNavBar />}>
-          <Route path="/vendors" element={<VendorTabs/>}>
-          <Route path="/vendors/:id" element={<VendorPageDetails />} />
+          <Route path="/vendors" element={<VendorTabs />}>
+            <Route path="/vendors/:id" element={<VendorPageDetails />} />
+            <Route
+              path="/vendors/PaymentMangement"
+              element={<PaymentManagement />}
+            />
           </Route>
-        
-        </Route>
+        </Route>    
         {/* <Route path="/admin/vendors/:id" element={<VendorPageDetails />} /> */}
         <Route path="/admin/DriverModel" element={<DriverModel />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
