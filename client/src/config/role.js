@@ -5,7 +5,7 @@ export const ROLES = {
     Driver:'driver'
 }
 export const OnlyVendor = {
-   
+    Admin: 'admin',
     Vendor: 'vendor',
     
 }
