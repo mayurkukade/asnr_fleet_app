@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
-import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem ,Box} from "@chakra-ui/react";
 
 import { Avatar } from "@chakra-ui/react"
 import './adminnavbar.scss'
@@ -9,7 +9,7 @@ const Avtar = () => {
    console.log(JSON.parse(username).results.user[0])
   return (
     <>
-      <div className="card">
+      <Box className="card">
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
 
           <Menu>
@@ -25,7 +25,7 @@ const Avtar = () => {
               <MenuItem>Logout</MenuItem>
             </MenuList>
           </Menu>
-        </div>
+        </Box>
     </>
   )
 }

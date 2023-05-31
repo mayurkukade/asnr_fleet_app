@@ -33,8 +33,15 @@ import SearchVendor from "../searchVendor/SearchVendor";
 import {
   AiOutlineSortAscending,
   AiOutlineSortDescending,
-} from "react-icons/ai";
-
+} from "react-icons/Ai";
+import {
+  MdOutlineKeyboardArrowLeft,
+  MdOutlineKeyboardArrowRight
+} from "react-icons/Md";
+import {
+  BiFirstPage,
+  BiLastPage
+} from "react-icons/bi"
 const TableModel = ({
   data: V,
   columns,
@@ -153,19 +160,21 @@ if(tableData == 'vendors'){
               <Flex gap="10px">
                 <Button
                   h={"35px"}
-                  _hover={{ bg: "#1778f2" }}
+                  _hover={{ bg: "#95B6D8" }}
                   onClick={() => gotoPage(0)}
                   disabled={!canPreviousPage}
                 >
-                  First Page
+                  <BiFirstPage fontSize={"20px"} />
+                  {/* First Page */}
                 </Button>{" "}
                 <Button
                   h={"35px"}
-                  _hover={{ bg: "#1778f2" }}
+                  _hover={{ bg: "#95B6D8" }}
                   onClick={() => previousPage()}
                   disabled={!canPreviousPage}
                 >
-                  Previous Page
+                  <MdOutlineKeyboardArrowLeft fontSize={"22px"} />
+                  {/* Previous Page */}
                 </Button>{" "}
                 <Text alignItems="center" fontSize="18px" pt={"2px"}>
                   Page{" "}
@@ -175,20 +184,22 @@ if(tableData == 'vendors'){
                 </Text>
                 <Button
                   h={"35px"}
-                  _hover={{ bg: "#1778f2" }}
+                  _hover={{ bg: "#95B6D8" }}
                   onClick={() => nextPage()}
                   disabled={!canNextPage}
                 >
                   {" "}
-                  Next Page
+                  {/* Next Page */}
+                  <MdOutlineKeyboardArrowRight fontSize={"22px"} />
                 </Button>{" "}
                 <Button
                   h={"35px"}
-                  _hover={{ bg: "#1778f2" }}
+                  _hover={{ bg: "#95B6D8" }}
                   onClick={() => gotoPage(pageCount - 1)}
                   disabled={!canNextPage}
                 >
-                  Last Page
+                  {/* Last Page */}
+                  <BiLastPage fontSize={"20px"} />
                 </Button>{" "}
                 <Text fontSize="18px" pt={"2px"}>
                   | Go to page :
@@ -207,17 +218,19 @@ if(tableData == 'vendors'){
                   width="50px"
                 />
                 <Select
+                  //  _hover={{ bg: "#95B6D8" }}
                   border={"1px solid black"}
                   h={"35px"}
-                  placeholder="Select option"
+                  // placeholder="Select option"
                   value={pageSize}
                   onChange={(e) => {
                     setPageSize(Number(e.target.value));
                   }}
                   width="110px"
+               
                 >
                   {[5, 10, 15, 20, 25].map((pageSize) => (
-                    <option key={pageSize} value={pageSize}>
+                    <option key={pageSize} value={pageSize}  >
                       Show {pageSize}
                     </option>
                   ))}
