@@ -1,5 +1,11 @@
 export const ROLES = {
-    Employee: 'Employee',
-    Manager: 'Manager',
-    Admin: 'Admin'
+    User: 'user',
+    Vendor: 'vendor',
+    Admin: 'admin',
+    Driver:'driver'
+}
+export const OnlyVendor = {
+   
+    Vendor: 'vendor',
+    
 }
