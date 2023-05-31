@@ -7,7 +7,6 @@ import NotFound from "./pages/NotFound";
 import FleetManegment from "./components/Fleet/FleetManegment";
 import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
-
 // import VendorTable from "./reactTable/VendorTable";
 import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
@@ -33,11 +32,6 @@ const App = () => {
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
           </Route>
-<<<<<<< HEAD
-          
-=======
-         
->>>>>>> origin/master
         </Route>
         <Route element={<VendorNavBar />}>
           <Route path="/vendors" element={<VendorTabs />}>
@@ -46,18 +40,13 @@ const App = () => {
               path="/vendors/PaymentMangement"
               element={<PaymentManagement />}
             />
-<<<<<<< HEAD
-            {/* <Route path="/vendors" element={<VendorTabs />}>
-=======
-             {/* <Route path="/vendors" element={<VendorTabs />}>
->>>>>>> origin/master
-            <Route
+
+            {/* <Route
               path="/vendors/tripmanegment"
               element={<VendorManegment />}
-            />
-          </Route> */}
+            /> */}
           </Route>
-        </Route>    
+        </Route>
         {/* <Route path="/admin/vendors/:id" element={<VendorPageDetails />} /> */}
         <Route path="/admin/DriverModel" element={<DriverModel />} />
 
