@@ -42,7 +42,7 @@ const VendorTabs = () => {
               </Tab>
             </Link> */}
             <Tab w={"10%"} fontSize={"20px"}>
-              <Link to={"/admin/TripMangement"}>Trip Management</Link>
+              <Link to={"/vendors/:id"}>Trip Management</Link>
             </Tab>
             <Tab w={"10%"} fontSize={"20px"}>
               <Link to={"/vendors/PaymentMangement"}>Payment Management</Link>
