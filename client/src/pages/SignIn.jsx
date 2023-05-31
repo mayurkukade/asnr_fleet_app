@@ -70,6 +70,7 @@ const SignIn = () => {
     if (validateForm()) {
       try {
         const res = await login({ email, password }).unwrap();
+        console.log(res.results.user[0].role)
         dispatch(setCredentials({ ...res }));
 
         toast({
@@ -77,7 +78,12 @@ const SignIn = () => {
           position: "top",
           description: "Successful",
         });
-        navigate("/admin/fleet");
+        if(res.results.user[0].role == 'admin'){
+          navigate("/admin/fleet");
+        }else{
+          navigate('/about')
+        }
+        
       } catch (err) {
         console.log(err.data.error.message);
         toast({

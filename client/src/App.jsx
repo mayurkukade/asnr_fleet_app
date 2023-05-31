@@ -9,13 +9,13 @@ import UserRoleManegment from "./components/UserRole/UserRoleManegment";
 import Reports from "./components/Reports/Reports";
 
 
-// import VendorTable from "./reactTable/VendorTable";
-import DriverModel from "./components/tableModel/DriverModel";
+// import DriverModel from "./components/tableModel/DriverModel";
 import AppLayout from "./components/appLayout/AppLayout";
 import AdminTabs from "./components/adminTabs/AdminTabs";
 import VendorModel from "./components/tableModel/VendorModel";
 import VendorPageDetails from "./pages/VendorPageDetails";
 import VendorNavBar from "./components/Navbar/VendorNavBar";
+import AboutUs from "./pages/AboutUs";
 
 const App = () => {
   return (
@@ -33,21 +33,13 @@ const App = () => {
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
           </Route>
-          {/* <Route path="/vendors" element={<VendorTabs />}>
-            <Route
-              path="/vendors/tripmanegment"
-              element={<VendorManegment />}
-            />
-          </Route> */}
         </Route>
         <Route element={<VendorNavBar />}>
-          <Route path="/vendors" element={<VendorTabs/>}>
-          <Route path="/vendors/:id" element={<VendorPageDetails />} />
+          <Route path="/vendors" element={<VendorTabs />}>
+            <Route path="/vendors/:id" element={<VendorPageDetails />} />
           </Route>
-        
         </Route>
-        {/* <Route path="/admin/vendors/:id" element={<VendorPageDetails />} /> */}
-        <Route path="/admin/DriverModel" element={<DriverModel />} />
+      <Route path="/about" element={<AboutUs/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
