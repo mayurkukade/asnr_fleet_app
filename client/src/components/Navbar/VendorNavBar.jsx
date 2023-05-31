@@ -16,9 +16,9 @@ const VendorNavBar = () => {
             ASNR Fleet App
           </Text>
         </Box>
-        <Box className="card" px={"20px"}>
+        <Box className="card" px={"20px"} >
           <Box mr={'50px'} fontSize="l" fontWeight="medium">
-            <Text>Vendor&apos;s name : </Text>
+            <Text>Vendor&apos;s Name : </Text>
             <Text>Vendor&apos;s Id :</Text>
           </Box>
           <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
