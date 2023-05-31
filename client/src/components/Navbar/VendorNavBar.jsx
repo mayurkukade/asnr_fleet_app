@@ -1,4 +1,4 @@
-import { Outlet, json } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { Box, Text } from "@chakra-ui/react";
 // import Avtar from "./Avtar";

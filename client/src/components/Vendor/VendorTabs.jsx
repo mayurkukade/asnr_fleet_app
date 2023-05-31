@@ -23,7 +23,7 @@ const VendorTabs = () => {
   // }, []);
 
   const { onOpen, onClose, isOpen } = useDisclosure();
-  const username = localStorage.getItem("userInfo");
+  // const username = localStorage.getItem("userInfo");
   const firstFieldRef = React.useRef(null);
   return (
     <>
