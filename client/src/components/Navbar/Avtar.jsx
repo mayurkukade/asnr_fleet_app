@@ -6,7 +6,7 @@ import { Avatar } from "@chakra-ui/react"
 import './adminnavbar.scss'
 const Avtar = () => {
     const username = localStorage.getItem("userInfo");
-   console.log(JSON.parse(username).results.user[0].username)
+   console.log(JSON.parse(username).results.user[0])
   return (
     <>
       <Box className="card">

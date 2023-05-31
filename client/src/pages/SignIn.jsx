@@ -31,27 +31,7 @@ const SignIn = () => {
   // for Form Validation Hooks
   const [error, setErrors] = useState({});
   const [login, { useLoading }] = useLoginMutation();
-  // function handleCallbackResponse(response) {
-  //   console.log("Ended JWT Id token:" + response.credential);
-  //   const userObject = jwt_decode(response.credential);
-  //   console.log(userObject);
 
-  // localStorage.setItem('persistname',userObject.given_name)
-  //     navigate("/admin");
-  //   }
-
-  // useEffect(() => {
-  //   google.accounts.id.initialize({
-  //     client_id:
-  //       "854208234654-kc0p94c1rrumg1mgllpkq1ses2992mp8.apps.googleusercontent.com",
-  //     callback: handleCallbackResponse,
-  //   });
-
-  //   google.accounts.id.renderButton(document.getElementById("signInDiv"), {
-  //     theme: "outline",
-  //     size: "large",
-  //   });
-  // },);
   const registerHandler = (e) => {
     const { name, value } = e.target;
     setRegisterValue((preval) => {
@@ -70,6 +50,7 @@ const SignIn = () => {
     if (validateForm()) {
       try {
         const res = await login({ email, password }).unwrap();
+        console.log(res.results.user[0].role)
         dispatch(setCredentials({ ...res }));
 
         toast({
@@ -77,7 +58,12 @@ const SignIn = () => {
           position: "top",
           description: "Successful",
         });
-        navigate("/admin/fleet");
+        if(res.results.user[0].role == 'admin'){
+          navigate("/admin/fleet");
+        }else{
+          navigate('/about')
+        }
+        
       } catch (err) {
         console.log(err.data.error.message);
         toast({
@@ -93,7 +79,6 @@ const SignIn = () => {
     let isValid = true;
     const newErrors = {};
 
-    // Validation logic for each field
     if (registerValue.email.trim() === "") {
       newErrors.email = "Email is required";
       isValid = false;
@@ -160,10 +145,7 @@ const SignIn = () => {
                 )
               }
             </form>
-            {/* <h4>OR</h4>
-         <Box className="googleButton">
-           <Box id="signInBox"></Box>
-         </Box> */}
+           
           </FormControl>
 
           <Box
