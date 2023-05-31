@@ -33,12 +33,7 @@ const App = () => {
             <Route path="/admin/user" element={<UserRoleManegment />} />
             <Route path="/admin/reports" element={<Reports />} />
           </Route>
-          {/* <Route path="/vendors" element={<VendorTabs />}>
-            <Route
-              path="/vendors/tripmanegment"
-              element={<VendorManegment />}
-            />
-          </Route> */}
+         
         </Route>
         <Route element={<VendorNavBar />}>
           <Route path="/vendors" element={<VendorTabs />}>
@@ -47,6 +42,12 @@ const App = () => {
               path="/vendors/PaymentMangement"
               element={<PaymentManagement />}
             />
+             {/* <Route path="/vendors" element={<VendorTabs />}>
+            <Route
+              path="/vendors/tripmanegment"
+              element={<VendorManegment />}
+            />
+          </Route> */}
           </Route>
         </Route>    
         {/* <Route path="/admin/vendors/:id" element={<VendorPageDetails />} /> */}

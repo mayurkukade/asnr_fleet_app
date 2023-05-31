@@ -16,6 +16,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import FormAddDriver from "./FormAddDriver";
+// import { useState } from "react";
 const VendorTabs = () => {
   // const navigate = useNavigate();
   // useEffect(() => {
@@ -24,6 +25,7 @@ const VendorTabs = () => {
 
   const { onOpen, onClose, isOpen } = useDisclosure();
   // const username = localStorage.getItem("userInfo");
+  
   const firstFieldRef = React.useRef(null);
   return (
     <>
@@ -39,9 +41,9 @@ const VendorTabs = () => {
                 Trip Management
               </Tab>
             </Link> */}
-            <Tab w={"10%"} fontSize={"20px"}>
-              <Link to={"/admin/TripMangement"}>Trip Management</Link>
-            </Tab>
+              <Tab w={"10%"} fontSize={"20px"}>
+                <Link to={"/vendors/:id"} >Trip Management</Link>
+              </Tab>
             <Tab w={"10%"} fontSize={"20px"}>
               <Link to={"/vendors/PaymentMangement"}>Payment Management</Link>
             </Tab>
@@ -52,6 +54,9 @@ const VendorTabs = () => {
             alignItems={"center"}
             color="green"
             fontSize={"20px"}
+            _hover={{ backgroundColor: "aqua" }}
+            borderRadius={'12px'}
+            paddingX={'13px'}
           >
             Reviewer
             <Popover
@@ -90,6 +95,9 @@ const VendorTabs = () => {
             marginRight={"50px"}
             color="green"
             fontSize={"20px"}
+            _hover={{ backgroundColor: "aqua" }}
+            borderRadius={'12px'}
+            paddingX={'13px'}
           >
             Add Driver Details
             <Popover
