@@ -10,18 +10,24 @@ const VendorNavBar = () => {
   // const {username,}
   return (
     <>
-      <Box className="nav" >
+      <Box className="nav" fontWeight="medium">
         <Box className="searchbar">
-          <Text fontSize="2xl" fontWeight="medium">
-            ASNR Fleet App
-          </Text>
+          <Text fontSize="2xl">ASNR Fleet App</Text>
         </Box>
-        <Box className="card" px={"20px"} >
-          <Box mr={'50px'} fontSize="l" fontWeight="medium">
-            <Text>Vendor&apos;s Name : </Text>
-            <Text>Vendor&apos;s Id :</Text>
+        <Box className="card" px={"10px"}>
+          <Box>
+            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
           </Box>
-          <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+          <Box fontSize="l" w={"260px"}>
+            <Text>
+              Vendor&apos;s Name :{" "}
+              <span style={{ fontWeight: "normal" }}> Akshay Barapatre</span>
+            </Text>
+            <Text>
+              Vendor&apos;s Id :{" "}
+              <span style={{ fontWeight: "normal" }}> FA154252</span>
+            </Text>
+          </Box>
         </Box>
       </Box>
       <hr />
