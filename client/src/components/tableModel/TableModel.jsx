@@ -10,7 +10,7 @@ import {
 } from "react-table";
 // import { useVendorDetailsQuery } from "../../api/vendorSlice";
 // import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import {
   Table,
@@ -36,12 +36,11 @@ import {
 } from "react-icons/Ai";
 import {
   MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight
+  MdOutlineKeyboardArrowRight,
 } from "react-icons/Md";
-import {
-  BiFirstPage,
-  BiLastPage
-} from "react-icons/bi"
+
+import { IoMdArrowRoundBack } from "react-icons/Io";
+import { BiFirstPage, BiLastPage } from "react-icons/bi";
 const TableModel = ({
   data: V,
   columns,
@@ -51,13 +50,13 @@ const TableModel = ({
   tableData,
 }) => {
   const data = React.useMemo(() => FetchData, [FetchData]);
-  var linkString
-if(tableData == 'vendors'){
-  console.log(tableData)
-  linkString = '/vendors'
-}else{
-  linkString = '#'
-}
+  var linkString;
+  if (tableData == "vendors") {
+    console.log(tableData);
+    linkString = "/vendors";
+  } else {
+    linkString = "#";
+  }
 
   const {
     getTableProps,
@@ -85,6 +84,7 @@ if(tableData == 'vendors'){
     usePagination
   );
 
+  const navigate = useNavigate();
   return (
     <>
       {error ? (
@@ -94,11 +94,23 @@ if(tableData == 'vendors'){
       ) : data ? (
         <>
           <TableContainer>
-            <SearchVendor
-              preGlobalFilteredRows={preGlobalFilteredRows}
-              setGlobalFilter={setGlobalFilter}
-              globalFilter={state.SearchVendor}
-            />
+            <Box display="flex" alignItems="center" px={"20px"}>
+              <Button
+                colorScheme="teal"
+                variant="solid"
+                onClick={() => navigate(-1)}
+              >
+                <Icon as={IoMdArrowRoundBack} boxSize={6} />
+                Back
+              </Button>
+              <Box flex="1" display="flex" justifyContent="flex-end">
+                <SearchVendor
+                  preGlobalFilteredRows={preGlobalFilteredRows}
+                  setGlobalFilter={setGlobalFilter}
+                  globalFilter={state.SearchVendor}
+                />
+              </Box>
+            </Box>
             <Table {...getTableProps()}>
               <Thead bgColor={"#95B6D8"} padding="20px 0px">
                 {headerGroups.map((headerGroup, i) => (
@@ -113,7 +125,6 @@ if(tableData == 'vendors'){
                         {column.render("Header")}
                         <Text>
                           <HStack>
-                          
                             <Flex>
                               {column.isSortedDesc ? (
                                 <Icon as={AiOutlineSortAscending} boxSize={6} />
@@ -148,13 +159,11 @@ if(tableData == 'vendors'){
                           </Link>
                         </Td>
                       ))}
-                    
                     </Tr>
                   );
                 })}
               </Tbody>
             </Table>
-          
 
             <Box className="pagination" padding="15px" justifyItems="center">
               <Flex gap="10px">
@@ -227,10 +236,9 @@ if(tableData == 'vendors'){
                     setPageSize(Number(e.target.value));
                   }}
                   width="110px"
-               
                 >
                   {[5, 10, 15, 20, 25].map((pageSize) => (
-                    <option key={pageSize} value={pageSize}  >
+                    <option key={pageSize} value={pageSize}>
                       Show {pageSize}
                     </option>
                   ))}
